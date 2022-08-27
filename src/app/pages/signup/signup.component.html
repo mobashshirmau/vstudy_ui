@@ -1,0 +1,132 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img src="../../../assets/logo.png" alt="" />
+          </div>
+
+          <h1 class="text-center">Register Here !!</h1>
+
+          <!-- {{ user | json }} -->
+
+          <form (ngSubmit)="formSubmit()">
+            <!-- Username field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Registration Id</mat-label>
+              <input
+                required
+                [(ngModel)]="user.regId"
+                name="regId"
+                matInput
+                placeholder="Enter here"
+              />
+              <mat-hint>Registration Id must be unique !!</mat-hint>
+            </mat-form-field>
+
+             <!--  name  -->
+             <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Full Name</mat-label>
+              <input
+                required
+                [(ngModel)]="user.name"
+                name="name"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+           <!-- class -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Class</mat-label>
+                <mat-select [(ngModel)]="user.class"
+                name="class"
+                matInput>
+                  <mat-option [value]="1">1st</mat-option>
+                  <mat-option [value]="2">2nd</mat-option>
+                  <mat-option [value]="3">3rd</mat-option>
+                  <mat-option [value]="4">4th</mat-option>
+                  <mat-option [value]="5">5th</mat-option>
+                  <mat-option [value]="6">6th</mat-option>
+                  <mat-option [value]="7">7th</mat-option>
+                  <mat-option [value]="8">8th</mat-option>
+                  <mat-option [value]="9">9th</mat-option>
+                  <mat-option [value]="10">10th</mat-option>
+                  <mat-option [value]="11">11th</mat-option>
+                  <mat-option [value]="12">12th</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <!-- school name  -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>School Name</mat-label>
+              <input
+                required
+                [(ngModel)]="user.school"
+                name="school"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+            <!-- <-- email --> 
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input
+                required
+                [(ngModel)]="user.email"
+                name="email"
+                type="email"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+            <!-- phone number -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input
+                required
+                [(ngModel)]="user.phone"
+                name="phone"
+                type="number"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+            <!-- Password field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>User Password</mat-label>
+              <input
+                required
+                [(ngModel)]="user.password"
+                name="password"
+                type="password"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">
+                Register
+              </button>
+              <button
+                type="button"
+                style="margin-left: 20px"
+                mat-raised-button
+                color="accent"
+              >
+                Clear
+              </button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

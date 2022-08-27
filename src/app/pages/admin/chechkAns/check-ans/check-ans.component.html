@@ -1,0 +1,77 @@
+<mat-card>
+    <h1>Check Answer</h1>
+  
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <form (ngSubmit)="formSubmit()">
+        <div class="row">
+          <div class="col-md-3">
+            
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Registration ID</mat-label>
+  
+                <input
+                  required
+                  autofocus
+                  type="text"
+                  name="registrationId"
+                  [(ngModel)]="checkAns.registrationId"
+                  (blur)="sendit($event.target.value)"
+                  matInput
+                  placeholder="Enter here"
+                />
+              </mat-form-field>
+            </div>
+          <div class="col-md-3">
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Full Name</mat-label>
+  
+                <input
+                  required
+                  
+                  type="text"
+                  name="name"
+                  [(ngModel)]="checkAns.name"
+                  matInput
+                  placeholder="Enter here"
+                />
+              </mat-form-field>
+          </div>
+          <div class="col-md-3">
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Class</mat-label>
+  
+                <input
+                  required
+                  
+                  type="text"
+                  name="class"
+                  [(ngModel)]="checkAns.class"
+                  matInput
+                  placeholder="Enter here"
+                />
+              </mat-form-field>
+          </div>
+          <div class="col-md-3">
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Group</mat-label>
+  
+                <input
+                  required
+                  
+                  type="text"
+                  name="group"
+                  [(ngModel)]="checkAns.group"
+                  matInput
+                  placeholder="Enter here"
+                />
+              </mat-form-field>
+          </div>
+          <div class="container text-center mt15">
+            <button mat-raised-button color="accent">Add</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
