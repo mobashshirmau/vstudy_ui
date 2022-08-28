@@ -14,10 +14,16 @@ export class ViewCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this._category.categories().subscribe(
-      (data: any) => {
-        //css
-        this.categories = data;
-        console.log(this.categories);
+      (result: any) => {
+        if(result.status=='success'){
+          this.categories = result.data;
+          
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
       },
 
       (error) => {
