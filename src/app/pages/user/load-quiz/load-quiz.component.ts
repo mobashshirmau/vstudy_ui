@@ -19,10 +19,11 @@ export class LoadQuizComponent implements OnInit {
         console.log('Load all the quiz');
 
         this._quiz.getActiveQuizzes().subscribe(
-          (data: any) => {
-            this.quizzes = data;
-            console.log(this.quizzes);
-          },
+          (result: any) => {
+            if(result.status=='success'){
+              this.quizzes = result.data;
+              
+            }},
           (error) => {
             console.log(error);
             alert('error in loading all quizzes');
