@@ -38,13 +38,18 @@ export class StartComponent implements OnInit {
   }
   loadQuestions() {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
-      (data: any) => {
-        this.questions = data;
-
-        this.timer = this.questions.length * 2 * 60;
-
-        console.log(this.questions);
-        this.startTimer();
+      (result: any) => {
+        if(result.status=='success'){
+          this.questions = result.data;
+          this.timer = 5 * 2 * 60;
+          console.log(this.questions);
+          this.startTimer();
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
       },
 
       (error) => {
