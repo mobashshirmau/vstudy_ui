@@ -14,9 +14,16 @@ export class ViewQuizzesComponent implements OnInit {
 
   ngOnInit(): void {
     this._quiz.quizzes().subscribe(
-      (data: any) => {
-        this.quizzes = data;
-        console.log(this.quizzes);
+      (result: any) => {
+        if(result.status=='success'){
+          this.quizzes = result.data;
+          
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
       },
       (error) => {
         console.log(error);
