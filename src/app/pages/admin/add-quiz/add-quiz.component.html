@@ -66,6 +66,7 @@
             name="active"
             [(ngModel)]="quizData.active"
             class="mt20"
+            color="primary"
           >
             Publish Status
           </mat-slide-toggle>
@@ -75,8 +76,8 @@
           <mat-form-field appearance="fill" class="mt20 w100">
             <mat-label>Categories</mat-label>
             <mat-select name="category" [(ngModel)]="quizData.category.cid">
-              <mat-option *ngFor="let c of categories" [value]="c.cid">
-                {{ c.title }}
+              <mat-option *ngFor="let c of categories" [value]="c.cat_id">
+                {{ c.cat_title }}
               </mat-option>
             </mat-select>
           </mat-form-field>

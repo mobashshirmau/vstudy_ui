@@ -31,10 +31,16 @@ export class AddQuizComponent implements OnInit {
 
   ngOnInit(): void {
     this._cat.categories().subscribe(
-      (data: any) => {
-        //categories load
-        this.categories = data;
-        // console.log(this.categories);
+      (result: any) => {
+        if(result.status=='success'){
+          this.categories = result.data;
+          
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
       },
 
       (error) => {
