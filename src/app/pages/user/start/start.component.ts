@@ -41,10 +41,8 @@ export class StartComponent implements OnInit {
       (result: any) => {
         if(result.status=='success'){
           this.questions = result.data;
-          this.timer = this.questions.length * 1 * 60;
-          const quesLength = this.questions.length;
-          console.log(quesLength)
-          console.log(this.questions[0]['content']);
+          this.timer = 5 * 2 * 60;
+          console.log(this.questions);
           this.startTimer();
         }
         else{
