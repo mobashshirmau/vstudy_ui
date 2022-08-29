@@ -37,7 +37,7 @@ export class LoadQuizComponent implements OnInit {
           (result: any) => {
             if(result.status=='success'){
               this.quizzes = result.data;
-              
+              this.quizzes = this.quizzes[0]
             }},
           (error) => {
             alert('error in loading quiz data');

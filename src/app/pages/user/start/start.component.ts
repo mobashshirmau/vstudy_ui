@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class StartComponent implements OnInit {
   qid;
   questions;
+  length;
 
   marksGot = 0;
   correctAnswers = 0;

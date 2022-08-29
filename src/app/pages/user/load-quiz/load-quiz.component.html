@@ -1,6 +1,5 @@
-<div class="bootstrap-wrapper">
+<div class="bootstrap-wrapper" style="margin-top: 30px;">
   <div class="container-fluid">
-    <h1 class="mt20">Available Quizzes</h1>
     <div class="row mt20" *ngIf="quizzes">
       <div class="col-md-4" *ngFor="let q of quizzes">
         <mat-card class="mb20">
@@ -20,16 +19,16 @@
             <button mat-button color="primary">View</button>
             <button
               mat-button
-              color="accent"
+              color="primary"
               [routerLink]="'/user-dashboard/instructions/' + q.q_id"
               class="ml10"
             >
               Start
             </button>
-            <button mat-button color="accent">
+            <button mat-button color="primary">
               Questions :{{ q.no_of_ques }}
             </button>
-            <button mat-button color="accent">M.M :{{ q.max_marks }}</button>
+            <button mat-button color="primary">M.M :{{ q.max_marks }}</button>
           </mat-card-action>
         </mat-card>
       </div>

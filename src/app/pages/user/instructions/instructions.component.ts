@@ -23,10 +23,12 @@ export class InstructionsComponent implements OnInit {
     // console.log(this.qid);
 
     this._quiz.getQuiz(this.qid).subscribe(
-      (data: any) => {
-        // console.log(data);
-        this.quiz = data;
-      },
+      (result: any) => {
+        if(result.status=='success'){
+          this.quiz = result.data;
+          console.log(this.quiz[0].title)
+          
+        }},
       (error) => {
         console.log(error);
         alert('Error in loading quiz data');

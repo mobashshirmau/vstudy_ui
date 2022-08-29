@@ -14,8 +14,8 @@
           <mat-card-content class="ml20">
             <!-- content  -->
 
-            <h1>{{ quiz.title }}</h1>
-            <p>{{ quiz.description }}</p>
+            <h1>{{ quiz[0].title }}</h1>
+            <p>{{ quiz[0].description }}</p>
 
             <mat-divider></mat-divider>
             <br />
@@ -27,16 +27,16 @@
               <!-- Let the time of each questions is  2 minutes -->
               <li>
                 You have to submit quiz with in
-                <b> {{ quiz.numberOfQuestions * 2 }} Minutes.</b>
+                <b> {{ quiz[0].no_of_ques * 1 }} Minutes.</b>
               </li>
               <li>You can attempt the quiz any number of time .</li>
               <li>
-                There are <b>{{ quiz.numberOfQuestions }} questions</b> in this
+                There are <b>{{ quiz[0].no_of_ques }} questions</b> in this
                 quiz.
               </li>
               <li>
                 Each questions carries
-                <b>{{ quiz.maxMarks / quiz.numberOfQuestions }} marks</b>. No
+                <b>{{ quiz[0].max_marks / quiz[0].no_of_ques }} marks</b>. No
                 negative marking for wrong ones.
               </li>
               <li>All questions is of MCQ Types.</li>
