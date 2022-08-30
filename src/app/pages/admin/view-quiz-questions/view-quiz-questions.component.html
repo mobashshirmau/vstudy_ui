@@ -23,27 +23,27 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-6">
-                <p><b>1)</b> {{ q.option1 }}</p>
+                <p><b>1)</b> {{ q.opt1}}</p>
               </div>
               <div class="col-md-6">
-                <p><b>2)</b> {{ q.option2 }}</p>
+                <p><b>2)</b> {{ q.opt2 }}</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <p><b>3)</b> {{ q.option3 }}</p>
+                <p><b>3)</b> {{ q.opt3 }}</p>
               </div>
               <div class="col-md-6">
-                <p><b>4)</b> {{ q.option4 }}</p>
+                <p><b>4)</b> {{ q.opt4 }}</p>
               </div>
             </div>
             <mat-divider></mat-divider>
-            <p class="mt20"><b>Correct Answer:</b> {{ q.answer }}</p>
+            <p class="mt20"><b>Correct Answer:</b> {{ q.ans }}</p>
           </div>
         </mat-card-content>
 
         <mat-card-action>
-          <button mat-button (click)="deleteQuestion(q.quesId)" color="warn">
+          <button mat-button (click)="deleteQuestion(q.ques_id)" color="warn">
             Delete
           </button>
           <button mat-button color="primary">Update</button>

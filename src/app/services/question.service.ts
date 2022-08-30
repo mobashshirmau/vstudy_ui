@@ -11,7 +11,7 @@ export class QuestionService {
   public getQuestionsOfQuiz(qid) {
     return this._http.get(`${baseUrl}/question/quiz/all/${qid}`);
   }
-
+ 
   public getQuestionsOfQuizForTest(qid) {
     return this._http.get(`${baseUrl}/question/quiz/${qid}`);
   }

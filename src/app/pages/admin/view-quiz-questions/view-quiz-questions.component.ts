@@ -24,9 +24,16 @@ export class ViewQuizQuestionsComponent implements OnInit {
     this.qId = this._route.snapshot.params.qid;
     this.qTitle = this._route.snapshot.params.title;
     this._question.getQuestionsOfQuiz(this.qId).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.questions = data;
+      (result: any) => {
+        if(result.status=='success'){
+          this.questions = result.data;
+          
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
       },
       (error) => {
         console.log(error);
