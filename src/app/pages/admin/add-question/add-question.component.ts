@@ -15,13 +15,14 @@ export class AddQuestionComponent implements OnInit {
   qId;
   qTitle;
   question = {
-    quiz: {},
+    q_id: '',
     content: '',
     option1: '',
     option2: '',
     option3: '',
     option4: '',
     answer: '',
+    added_by:'admin(Dummy)'
   };
 
   constructor(
@@ -32,7 +33,7 @@ export class AddQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qid;
     this.qTitle = this._route.snapshot.params.title;
-    this.question.quiz['qId'] = this.qId;
+    this.question['q_id'] = this.qId;
   }
 
   formSubmit() {
