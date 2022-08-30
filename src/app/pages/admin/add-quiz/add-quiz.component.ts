@@ -18,9 +18,7 @@ export class AddQuizComponent implements OnInit {
     maxMarks: '',
     numberOfQuestions: '',
     active: true,
-    category: {
-      cid: '',
-    },
+    cat_id:''
   };
 
   constructor(
@@ -70,9 +68,8 @@ export class AddQuizComponent implements OnInit {
           maxMarks: '',
           numberOfQuestions: '',
           active: true,
-          category: {
-            cid: '',
-          },
+          cat_id:''
+  ,
         };
       },
 
