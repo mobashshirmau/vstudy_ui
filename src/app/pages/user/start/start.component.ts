@@ -23,6 +23,7 @@ export class StartComponent implements OnInit {
   isSubmit = false;
 
   timer: any;
+  stu_id: '128388';
 
   constructor(
     private locationSt: LocationStrategy,
@@ -42,6 +43,7 @@ export class StartComponent implements OnInit {
       (result: any) => {
         if(result.status=='success'){
           this.questions = result.data;
+          
           this.timer = this.questions.length * 1 * 60;
           const quesLength = this.questions.length;
           console.log(quesLength)
@@ -103,7 +105,16 @@ export class StartComponent implements OnInit {
   evalQuiz() {
     //calculation
     //call to sever  to check questions
-    this._question.evalQuiz(this.questions).subscribe(
+    // this.questions.push({'stu_id':'3221'})
+    const answer_keys = []
+    const submit_payload= {}
+    submit_payload['stu_id'] = '1213'
+    submit_payload['q_id'] = this.qid    
+    this.questions.forEach(function (value) {
+      answer_keys.push({ [value['ques_id']] :value['givenAnswer']})
+    });
+    submit_payload['data'] = answer_keys
+    this._question.evalQuiz(submit_payload).subscribe(
       (data: any) => {
         console.log(data);
         this.marksGot = data.marksGot;

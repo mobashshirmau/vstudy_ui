@@ -1,0 +1,19 @@
+<mat-card>
+    <h1>All Level</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let s of levels">
+        <mat-icon mat-list-icon>category</mat-icon>
+        <div mat-line>{{ s.level_title }}</div>
+        <div mat-line>{{ s.level_class }}</div>
+        <div mat-line>{{ s.level_desc }}</div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  
+    <div class="container text-center mt20">
+      <button routerLink="/admin/add-level" mat-raised-button color="primary">
+        Add New Level
+      </button>
+    </div>
+  </mat-card>
+  

@@ -1,0 +1,18 @@
+<mat-card>
+    <h1>All Subjects</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let s of subjects">
+        <mat-icon mat-list-icon>category</mat-icon>
+        <div mat-line>{{ s.sub_title }}</div>
+        <div mat-line>{{ s.sub_desc }}</div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  
+    <div class="container text-center mt20">
+      <button routerLink="/admin/add-subject" mat-raised-button color="primary">
+        Add New Subject
+      </button>
+    </div>
+  </mat-card>
+  

@@ -26,7 +26,8 @@ export class QuestionService {
   }
 
   //eval quiz
-  public evalQuiz(questions) {
-    return this._http.post(`${baseUrl}/question/eval-quiz`, questions);
+  public evalQuiz(submit_payload) {
+    // questions['stu_id'] =  '21212'
+    return this._http.post(`${baseUrl}/question/eval-quiz`, submit_payload);
   }
 }

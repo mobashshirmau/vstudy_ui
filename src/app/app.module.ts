@@ -45,6 +45,11 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { CheckAnsComponent } from './pages/admin/chechkAns/check-ans/check-ans.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AddSubjectComponent } from './pages/admin/add-subject/add-subject/add-subject.component';
+import { AddLevelComponent } from './pages/admin/add-level/add-level/add-level.component';
+import { ViewLevelComponent } from './pages/admin/view-level/view-level/view-level.component';
+import { ViewSubjectComponent } from './pages/admin/view-subject/view-subject/view-subject.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -71,6 +76,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     InstructionsComponent,
     StartComponent,
     CheckAnsComponent,
+    AddSubjectComponent,
+    AddLevelComponent,
+    ViewLevelComponent,
+    ViewSubjectComponent
   ],
   imports: [
     
@@ -94,7 +103,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatProgressSpinnerModule,
     NgxUiLoaderModule,
     MatInputModule,
+    MatRadioModule,
     MatNativeDateModule,
+    
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
     }),

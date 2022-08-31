@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { AddLevelComponent } from './pages/admin/add-level/add-level/add-level.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { AddSubjectComponent } from './pages/admin/add-subject/add-subject/add-subject.component';
 import { CheckAnsComponent } from './pages/admin/chechkAns/check-ans/check-ans.component';
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { ViewLevelComponent } from './pages/admin/view-level/view-level/view-level.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { ViewSubjectComponent } from './pages/admin/view-subject/view-subject/view-subject.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -82,6 +86,22 @@ const routes: Routes = [
       {
         path: 'checkAns',
         component: CheckAnsComponent,
+      },
+      {
+        path: 'add-subject',
+        component: AddSubjectComponent,
+      },
+      {
+        path: 'add-level',
+        component: AddLevelComponent,
+      },
+      {
+        path: 'subject',
+        component: ViewSubjectComponent,
+      },
+      {
+        path: 'level',
+        component: ViewLevelComponent,
       },
     ],
   },
