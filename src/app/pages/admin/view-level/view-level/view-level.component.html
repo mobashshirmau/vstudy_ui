@@ -3,9 +3,9 @@
     <mat-list>
       <mat-list-item *ngFor="let s of levels">
         <mat-icon mat-list-icon>category</mat-icon>
-        <div mat-line>{{ s.level_title }}</div>
-        <div mat-line>{{ s.level_class }}</div>
-        <div mat-line>{{ s.level_desc }}</div>
+        <div mat-line><b>Level Title: </b>{{ s.level_title }}</div>
+        <div mat-line><b>Classes: </b>{{ s.level_class }}</div>
+        <div mat-line><b>Level Description: </b>{{ s.level_desc }}</div>
         <mat-divider></mat-divider>
       </mat-list-item>
     </mat-list>

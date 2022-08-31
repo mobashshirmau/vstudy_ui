@@ -18,9 +18,11 @@ export class ViewLevelComponent implements OnInit {
       (result: any) => {
         if(result.status=='success'){
           this.levels = result.data;
+  
           
         }
         else{
+         
           Swal.fire('Error !!', result.message, 'error')
           
         }
