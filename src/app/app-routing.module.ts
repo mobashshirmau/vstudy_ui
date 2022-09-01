@@ -23,6 +23,7 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 
@@ -117,6 +118,10 @@ const routes: Routes = [
       {
         path: 'instructions/:qid',
         component: InstructionsComponent,
+      },
+      {
+        path: 'view-ans/:qid',
+        component: ViewAnsComponent,
       },
     ],
   },

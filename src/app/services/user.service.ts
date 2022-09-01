@@ -17,4 +17,8 @@ export class UserService {
   public fetchUserDetails(regId:any){
     return this.http.get(`${baseUrl}/user/`, regId)
   }
+  public getAnswersheet(show_answersheet:any){
+    return this.http.post(`${baseUrl}/get/answer-sheet`, show_answersheet)
+  }
+
 }

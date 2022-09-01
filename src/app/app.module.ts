@@ -50,6 +50,7 @@ import { AddLevelComponent } from './pages/admin/add-level/add-level/add-level.c
 import { ViewLevelComponent } from './pages/admin/view-level/view-level/view-level.component';
 import { ViewSubjectComponent } from './pages/admin/view-subject/view-subject/view-subject.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import {MatRadioModule} from '@angular/material/radio';
     AddSubjectComponent,
     AddLevelComponent,
     ViewLevelComponent,
-    ViewSubjectComponent
+    ViewSubjectComponent,
+    ViewAnsComponent
   ],
   imports: [
     
