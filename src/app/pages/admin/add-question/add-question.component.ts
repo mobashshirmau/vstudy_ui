@@ -4,6 +4,7 @@ import { QuestionService } from 'src/app/services/question.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
   selector: 'app-add-question',
@@ -12,6 +13,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class AddQuestionComponent implements OnInit {
   public Editor = ClassicEditor;
+  subject:[];
   qId;
   qTitle;
   question = {
@@ -22,10 +24,13 @@ export class AddQuestionComponent implements OnInit {
     option3: '',
     option4: '',
     answer: '',
+    sub_id:'',
+    class:'',
     added_by:'admin(Dummy)'
   };
 
   constructor(
+    private _subject: SubjectService,
     private _route: ActivatedRoute,
     private _question: QuestionService
   ) {}
@@ -34,6 +39,24 @@ export class AddQuestionComponent implements OnInit {
     this.qId = this._route.snapshot.params.qid;
     this.qTitle = this._route.snapshot.params.title;
     this.question['q_id'] = this.qId;
+    this._subject.subjects().subscribe(
+      (result: any) => {
+        if(result.status=='success'){
+          this.subject = result.data;
+          
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
+      },
+
+      (error) => {
+        console.log(error);
+        Swal.fire('Error!!', 'error in loading data from server', 'error');
+      }
+    );
   }
 
   formSubmit() {
@@ -48,6 +71,12 @@ export class AddQuestionComponent implements OnInit {
       return;
     }
     if (this.question.answer.trim() == '' || this.question.answer == null) {
+      return;
+    }
+    if (this.question.sub_id.trim() == '' || this.question.sub_id == null) {
+      return;
+    }
+    if (this.question.class.trim() == '' || this.question.class == null) {
       return;
     }
 

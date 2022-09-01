@@ -28,6 +28,6 @@ export class QuestionService {
   //eval quiz
   public evalQuiz(submit_payload) {
     // questions['stu_id'] =  '21212'
-    return this._http.post(`${baseUrl}/question/eval-quiz`, submit_payload);
+    return this._http.post(`${baseUrl}/add/submit_ans`, submit_payload);
   }
 }

@@ -15,17 +15,33 @@
           <form class="mt20" (submit)="formSubmit()">
             <!-- content field -->
 
-            <!-- <mat-form-field class="w100">
-              <mat-label>Write question content</mat-label>
-              <textarea
-                required
-                rows="8"
-                [(ngModel)]="question.content"
-                name="content"
-                matInput
-                placeholder="Enter here"
-              ></textarea>
-            </mat-form-field> -->
+            <div class="row">
+              <div class="col-md-6">
+                <!-- Class -->
+
+                <mat-form-field  class="w100">
+                  <mat-label>Subjects</mat-label>
+                  <mat-select name="level" [(ngModel)]="question.sub_id">
+                    <mat-option *ngFor="let s of subject" [value]="s.sub_id">
+                      {{ s.sub_title }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <!-- option2 -->
+                <mat-form-field  class="w100">
+                  <mat-label>Class</mat-label>
+                  <mat-select name="class" [(ngModel)]="question.class">
+                    <mat-option value="1">1st</mat-option>
+                    <mat-option value="2">2nd</mat-option>
+                    <mat-option value="3">3rd</mat-option>
+                    <mat-option value="4">4th</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
 
             <ckeditor
               [editor]="Editor"

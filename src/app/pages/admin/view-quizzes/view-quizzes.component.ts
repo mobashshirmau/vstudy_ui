@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LevelService } from 'src/app/services/level.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -9,14 +10,32 @@ import Swal from 'sweetalert2';
 })
 export class ViewQuizzesComponent implements OnInit {
   quizzes = [];
+  levels = [];
 
-  constructor(private _quiz: QuizService) {}
+  constructor(private _quiz: QuizService,private _level: LevelService) {}
 
   ngOnInit(): void {
     this._quiz.quizzes().subscribe(
       (result: any) => {
         if(result.status=='success'){
           this.quizzes = result.data;
+          
+        }
+        else{
+          Swal.fire('Error !!', result.message, 'error')
+          
+        }
+       
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error !', 'Error in loading data !', 'error');
+      }
+    );
+    this._level.levels().subscribe(
+      (result: any) => {
+        if(result.status=='success'){
+          this.levels = result.data;
           
         }
         else{

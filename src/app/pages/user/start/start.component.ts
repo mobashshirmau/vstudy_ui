@@ -109,11 +109,13 @@ export class StartComponent implements OnInit {
     const answer_keys = []
     const submit_payload= {}
     submit_payload['stu_id'] = '1213'
-    submit_payload['q_id'] = this.qid    
+    submit_payload['q_id'] = this.qid
+    const temp_json = {}   
     this.questions.forEach(function (value) {
-      answer_keys.push({ [value['ques_id']] :value['givenAnswer']})
+      temp_json[value['ques_id']] = value['givenAnswer']
+      // answer_keys.push({ [value['ques_id']] :value['givenAnswer']})
     });
-    submit_payload['data'] = answer_keys
+    submit_payload['data'] = temp_json
     this._question.evalQuiz(submit_payload).subscribe(
       (data: any) => {
         console.log(data);
