@@ -1,1 +1,103 @@
-<p>view-ans works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          
+  
+          <mat-card  class="mt10">
+            <mat-card-content>
+                <div class="row">
+                <div class="col-md-6">
+                    <h3><b>Total Questions: </b> {{quiz.total_question}}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3><b>Total Attempted </b> {{quiz.total_attempted}} </h3>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <h3><b>Correct: </b> {{quiz.no_of_correct_answers}}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3><b>Incorrect: </b> {{quiz.total_question-quiz.no_of_correct_answers}}</h3>
+                </div>
+              </div>
+              
+              
+              <mat-divider> </mat-divider>
+              
+            </mat-card-content>
+          </mat-card><br>
+          <div *ngFor="let q of quiz.answer_data; let i = index">
+          <mat-card *ngIf="q.result==='right'" style="background-color: #b6f2ba;">
+            
+                <mat-card-content>
+                    <p>
+                      <b>Q {{ i + 1 }})</b>
+                      
+                      <span class="ml10" [innerHTML]="q.content"></span>
+                    </p>
+                    <mat-divider> </mat-divider>
+                    <div class="row mt20">
+                      <div class="col-md-6" >
+                        {{q.opt1}}<mat-icon *ngIf="q.ans==='opt1'">done_all</mat-icon>
+                      </div>
+                      <div class="col-md-6">
+                        {{q.opt2}}<mat-icon  *ngIf="q.ans==='opt2'">done_all</mat-icon>
+                    </div>
+                    </div>
+        
+                    <div class="row mt5">
+                      <div class="col-md-6" >
+                       {{q.opt3}}<mat-icon  *ngIf="q.ans==='opt3'">done_all</mat-icon>
+                      </div>
+                      <div class="col-md-6" >
+                       {{q.opt4}}<mat-icon *ngIf="q.ans==='opt4'">done_all</mat-icon>
+                      </div>
+                    </div>
+                  </mat-card-content>
+       
+          </mat-card><br>
+          <mat-card *ngIf="q.result==='wrong'" style="background-color: #f0d3d3;">
+            
+            <mat-card-content>
+                <p>
+                  <b>Q {{ i + 1 }})</b>
+                  
+                  <span class="ml10" [innerHTML]="q.content"></span>
+                </p>
+                <mat-divider> </mat-divider>
+                <div class="row mt20">
+                  <div class="col-md-6" >
+                    {{q.opt1}}<mat-icon *ngIf="q.ans==='opt1'">done_all</mat-icon>
+                  </div>
+                  <div class="col-md-6">
+                    {{q.opt2}}<mat-icon  *ngIf="q.ans==='opt2'">done_all</mat-icon>
+                </div>
+                </div>
+    
+                <div class="row mt5">
+                  <div class="col-md-6" >
+                   {{q.opt3}}<mat-icon  *ngIf="q.ans==='opt3'">done_all</mat-icon>
+                  </div>
+                  <div class="col-md-6" >
+                   {{q.opt4}}<mat-icon *ngIf="q.ans==='opt4'">done_all</mat-icon>
+                  </div>
+                </div>
+                <p *ngIf="q.selected_answer==='opt1'"><b>You Selected: </b> {{q.opt1}}</p>
+                <p *ngIf="q.selected_answer==='opt2'"><b>You Selected: </b> {{q.opt2}}</p>
+                <p *ngIf="q.selected_answer==='opt3'"><b>You Selected: </b> {{q.opt3}}</p>
+                <p *ngIf="q.selected_answer==='opt4'"><b>You Selected: </b> {{q.opt4}}</p>
+              </mat-card-content>
+   
+      </mat-card>
+          </div>
+  
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  

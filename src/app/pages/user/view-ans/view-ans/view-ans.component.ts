@@ -36,11 +36,10 @@ export class ViewAnsComponent implements OnInit {
     console.log(get_answersheet)
     this._user.getAnswersheet(get_answersheet).subscribe(
       (result: any) => {
-        if(result.status=='success'){
-          this.quiz = result.data;
-          console.log(this.quiz[0].title)
+          this.quiz = result;
+          console.log(this.quiz)
           
-        }},
+        },
       (error) => {
         console.log(error);
         alert('Error in loading quiz data');
