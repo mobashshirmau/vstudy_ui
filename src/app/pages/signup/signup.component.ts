@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
     console.log(this.user);
     if (this.user.regId == '' || this.user.regId == null) {
       // alert('User is required !!');
-      this.snack.open('Username is required !! ', '', {
+      this.snack.open('Registaion Id is required !! ', '', {
         duration: 3000,
       });
       return;
