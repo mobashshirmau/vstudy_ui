@@ -1,5 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -12,6 +12,13 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   user = null;
 
+  @Output() closeSideNav = new EventEmitter();
+
+
+
+   onToggleClose() {
+    this.closeSideNav.emit();
+}
   constructor(public login: LoginService, private router: Router) {}
 
   ngOnInit(): void {

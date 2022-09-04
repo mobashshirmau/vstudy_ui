@@ -9,6 +9,7 @@ import { CheckAnsComponent } from './pages/admin/chechkAns/check-ans/check-ans.c
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { ViewLevelComponent } from './pages/admin/view-level/view-level/view-level.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
@@ -103,6 +104,10 @@ const routes: Routes = [
       {
         path: 'level',
         component: ViewLevelComponent,
+      },
+      {
+        path: 'upload-user',
+        component: UploadUserComponent,
       },
     ],
   },

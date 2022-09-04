@@ -1,0 +1,16 @@
+
+<mat-card>
+    <h1>Add User In Bulk</h1>
+  
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <input  (change)="selectFile($event)" class="form-control form-control-lg" id="formFileLg" type="file">
+          <button mat-raised-button color="primary" (click)="uploadFile()">Upload</button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

@@ -3,41 +3,26 @@
     <div class="row mt-4">
       <div class="col-md-6 offset-md-3">
         <mat-card>
-          <div class="container text-center">
-            <img src="../../../assets/logo.png" alt="" />
-          </div>
-
-          <h1 class="text-center">Login Here !!</h1>
+          <h2 class="text-center vstd-headers">Login Here</h2>
 
           <!-- {{ loginData | json }} -->
           <form (ngSubmit)="formSubmit()">
             <!-- username field -->
+            
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Registration Id</mat-label>
-              <input
-                [(ngModel)]="loginData.regId"
-                name="regId"
-                required
-                matInput
-                placeholder="Enter here"
-              />
-              <mat-hint>Valid Registration Id</mat-hint>
+              <input matInput placeholder="Enter Here" [(ngModel)]="loginData.regId" name="regId" required>
+              <mat-icon matSuffix>alternate_email</mat-icon>
             </mat-form-field>
 
             <!-- password field  -->
-
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>User Password</mat-label>
-              <input
-                [(ngModel)]="loginData.password"
-                name="password"
-                type="password"
-                required
-                matInput
-                placeholder="Enter here"
-              />
+              <input matInput placeholder="Password" [(ngModel)]="loginData.password" name="password" [type]="hide ? 'password' : 'text'" required>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
 
+            
             <div class="container text-center">
               <button mat-raised-button color="primary" type="submit">
                 Login

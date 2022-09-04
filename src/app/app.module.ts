@@ -51,6 +51,10 @@ import { ViewLevelComponent } from './pages/admin/view-level/view-level/view-lev
 import { ViewSubjectComponent } from './pages/admin/view-subject/view-subject/view-subject.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.component';
+import { ToolbarComponent } from './components/navbar/toolbar/toolbar.component';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
 
 @NgModule({
   declarations: [
@@ -81,12 +85,15 @@ import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.compon
     AddLevelComponent,
     ViewLevelComponent,
     ViewSubjectComponent,
-    ViewAnsComponent
+    ViewAnsComponent,
+    ToolbarComponent,
+    UploadUserComponent
   ],
   imports: [
     
     BrowserModule,
     MatDatepickerModule,
+    MatSidenavModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,

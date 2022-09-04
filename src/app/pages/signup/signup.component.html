@@ -3,11 +3,9 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <mat-card>
-          <div class="container text-center">
-            <img src="../../../assets/logo.png" alt="" />
-          </div>
+          
 
-          <h1 class="text-center">Register Here !!</h1>
+          <h2 class="text-center vstd-headers">Student Registration Form</h2>
 
           <!-- {{ user | json }} -->
 
@@ -42,7 +40,7 @@
             </mat-form-field>
 
            <!-- class -->
-            <mat-form-field class="full-width" appearance="outline">
+            <mat-form-field class="half-width" appearance="outline">
               <mat-label>Class</mat-label>
                 <mat-select [(ngModel)]="user.class"
                 name="class"
@@ -64,7 +62,7 @@
 
 
             <!-- school name  -->
-            <mat-form-field class="full-width" appearance="outline">
+            <mat-form-field class="half-width twoMat" appearance="outline">
               <mat-label>School Code</mat-label>
               <input
                 required
@@ -115,18 +113,14 @@
             </mat-form-field>
 
 
-            <div class="container text-center" *ngIf="userCheck==1" style="display: none;"; style="display: block;">
-              <button type="submit" mat-raised-button color="primary" >
+            <div class="container text-center" >
+              <button *ngIf="userCheck==1" type="submit" mat-raised-button color="primary" style="display: none;" >
                 Register
               </button>
-              <button
-                type="button"
-                style="margin-left: 20px"
-                mat-raised-button
-                color="primary"
-              >
-                Clear
+              <button *ngIf="userCheck==0" type="submit" mat-raised-button color="primary"  >
+                Register
               </button>
+              
             </div>
           </form>
         </mat-card>

@@ -6,9 +6,19 @@
   textColor="primary"
 ></ngx-ui-loader>
 
-<div ngxUiLoaderBlurred blur="6">
-  <app-navbar></app-navbar>
 
-  <!-- dynamic content -->
-  <router-outlet></router-outlet>
-</div>
+
+  <app-toolbar (SideNavToggle)="sidenav.toggle()"></app-toolbar>
+  <mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-navbar (closeSideNav)="sidenav.close()"></app-navbar>
+  </mat-sidenav>
+
+    
+
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    
+</mat-sidenav-container>
