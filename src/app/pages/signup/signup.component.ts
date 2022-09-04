@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
   constructor(private userService: UserService, private snack: MatSnackBar) {}
-
+  userCheck:number
   public user = {
     regId: '',
     name: '',
@@ -23,6 +23,18 @@ export class SignupComponent implements OnInit {
   };
 
   ngOnInit(): void {}
+
+  sendit(data){
+    if (data.length > 1) {
+      
+    this.userService.checkIfUserExist({'reg_id' :  data}).subscribe(
+      (data: any) => {
+    this.userCheck=data;
+    console.log(data)
+        
+      },
+  )}
+    }
 
   formSubmit() {
     console.log(this.user);

@@ -20,5 +20,8 @@ export class UserService {
   public getAnswersheet(show_answersheet:any){
     return this.http.post(`${baseUrl}/get/answer-sheet`, show_answersheet)
   }
+  public checkIfUserExist(data:any){
+    return this.http.post(`${baseUrl}/user/is-exist`, data)
+  }
 
 }
