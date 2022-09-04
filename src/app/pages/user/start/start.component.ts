@@ -109,10 +109,10 @@ export class StartComponent implements OnInit {
     const answer_keys = []
     const submit_payload= {}
     submit_payload['stu_id'] = '1213'
-    submit_payload['q_id'] = this.qid
+    submit_payload['q_id'] = this.qid.toString()
     const temp_json = {}   
     this.questions.forEach(function (value) {
-      temp_json[value['ques_id']] = value['givenAnswer']
+      temp_json[value['ques_id']] = value['givenAnswer'].toString()
       // answer_keys.push({ [value['ques_id']] :value['givenAnswer']})
     });
     submit_payload['data'] = temp_json
