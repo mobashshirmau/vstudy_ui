@@ -73,9 +73,9 @@ export class AddQuestionComponent implements OnInit {
     if (this.question.answer.trim() == '' || this.question.answer == null) {
       return;
     }
-    if (this.question.sub_id.trim() == '' || this.question.sub_id == null) {
-      return;
-    }
+    // if (this.question.sub_id.trim() == '' || this.question.sub_id == null) {
+    //   return;
+    // }
     if (this.question.class.trim() == '' || this.question.class == null) {
       return;
     }
