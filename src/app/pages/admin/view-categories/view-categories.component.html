@@ -1,17 +1,36 @@
-<mat-card>
-  <h1>All Categories</h1>
-  <mat-list>
-    <mat-list-item *ngFor="let c of categories">
-      <mat-icon mat-list-icon>category</mat-icon>
-      <div mat-line>{{ c.cat_title }}</div>
-      <div mat-line>{{ c.cat_desc }}</div>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-list>
 
-  <div class="container text-center mt20">
-    <button routerLink="/admin/add-category" mat-raised-button color="primary">
-      Add New Category
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-category" mat-raised-button color="primary">
+    Add New Category
+  </button>
+</div>
+<div class="row mt20">
+<div class="col-md-6" *ngFor="let c of categories">
+<mat-card class="mt10 mr20 ml20" >
+  
+  <mat-card-header>
+    <mat-card-title>
+    {{ c.cat_title }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{ c.cat_desc }}
+  </mat-card-content>
+  <mat-card-action>
+  
+    <button
+    (click)="deleteQuiz(q.qId)"
+      mat-flat-button
+      color="primary"
+    >
+      Delete
     </button>
-  </div>
+  </mat-card-action>
 </mat-card>
+
+
+
+</div>
+</div>
+
+

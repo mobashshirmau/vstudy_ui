@@ -1,19 +1,40 @@
-<mat-card>
-    <h1>All Level</h1>
-    <mat-list>
-      <mat-list-item *ngFor="let s of levels">
-        <mat-icon mat-list-icon>category</mat-icon>
-        <div mat-line><b>Level Title: </b>{{ s.level_title }}</div>
-        <div mat-line><b>Classes: </b>{{ s.level_class }}</div>
-        <div mat-line><b>Level Description: </b>{{ s.level_desc }}</div>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-    </mat-list>
+
   
-    <div class="container text-center mt20">
-      <button routerLink="/admin/add-level" mat-raised-button color="primary">
-        Add New Level
-      </button>
-    </div>
-  </mat-card>
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-level" mat-raised-button color="primary">
+    Add New Level
+  </button>
+</div>
+<div class="row mt20">
+<div class="col-md-4" *ngFor="let l of levels">
+<mat-card class="mt10 mr20 ml20" >
   
+  <mat-card-header>
+    <mat-card-title>
+      {{ l.level_title }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      <b>Class: {{ l.level_class }}</b>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    {{ l.level_desc }}
+  </mat-card-content>
+  <mat-card-action>
+  
+    <button
+    (click)="deleteQuiz(q.qId)"
+      mat-flat-button
+      color="primary"
+    >
+      Delete
+    </button>
+  </mat-card-action>
+</mat-card>
+
+
+
+</div>
+</div>
+
+

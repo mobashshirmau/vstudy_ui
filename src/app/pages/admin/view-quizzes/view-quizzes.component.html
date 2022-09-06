@@ -1,11 +1,19 @@
-<mat-card class="mt10 mr20 ml20" *ngFor="let q of quizzes">
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-quiz" mat-raised-button color="primary">
+    Add New Quiz
+  </button>
+</div>
+<div class="row">
+<div class="col-md-6" *ngFor="let q of quizzes">
+<mat-card class="mt10 mr20 ml20" >
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"><img src="https://png.pngtree.com/png-vector/20210414/ourlarge/pngtree-quiz-sign-icon-questions-png-image_3129181.jpg" width="40px" height="40px"></div>
     <mat-card-title>
-      {{ q.title }}
+      {{ q.title }}  Questions: {{ q.no_of_ques }}
     </mat-card-title>
     <mat-card-subtitle>
-      {{ q.cat_title }}
+      <p>{{ q.cat_title }}</p>
+      <p>Max Marks: {{ q.max_marks }}</p>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -15,33 +23,25 @@
     <button
       [routerLink]="'/admin/view-questions/' + q.q_id + '/' + q.title"
       mat-flat-button
-      color="primary"
+      class="btnColor"
     >
       Questions
     </button>
-    <button mat-stroked-button color="primary" class="ml20">
-      Max Marks: {{ q.max_marks }}
-    </button>
-    <button mat-stroked-button color="primary" class="ml20">
-      Questions: {{ q.no_of_ques }}
-    </button>
-
+    
    
     <button
       [routerLink]="'/admin/quiz/' + q.q_id"
       mat-flat-button
-      color="primary"
-      class="ml20"
+      class=" btnColor"
     >
       Result
     </button>
     <button
       [routerLink]="'/admin/checkAns/' + q.q_id"
       mat-flat-button
-      color="primary"
-      class="ml20"
+      class="btnColor"
     >
-      Ansersheet
+      Check
     </button>
 
     <button mat-mini-fab color="primary"
@@ -57,8 +57,7 @@
 </mat-card>
 
 
-<div class="container text-center mt20">
-  <button routerLink="/admin/add-quiz" mat-raised-button color="primary">
-    Add New Quiz
-  </button>
+
 </div>
+</div>
+
