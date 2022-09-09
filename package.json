@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "electron": "ng build && electron .",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

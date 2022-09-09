@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   constructor(private _cat: CategoryService, private _snack: MatSnackBar) {}
 
   ngOnInit(): void {
-    this._cat.categories().subscribe(
+    this._cat.categories(localStorage.getItem('auth-token')).subscribe(
       (result: any) => {
         if(result.status=='success'){
           this.categories = result.data;

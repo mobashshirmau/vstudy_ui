@@ -32,7 +32,7 @@ export class AddQuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._cat.categories().subscribe(
+    this._cat.categories(localStorage.getItem('auth-token')).subscribe(
       (result: any) => {
         if(result.status=='success'){
           this.categories = result.data;

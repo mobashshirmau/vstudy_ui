@@ -13,7 +13,7 @@ export class ViewCategoriesComponent implements OnInit {
   constructor(private _category: CategoryService) {}
 
   ngOnInit(): void {
-    this._category.categories().subscribe(
+    this._category.categories(localStorage.getItem('auth-token')).subscribe(
       (result: any) => {
         if(result.status=='success'){
           this.categories = result.data;

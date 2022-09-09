@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from './helper';
 
@@ -8,8 +8,13 @@ import baseUrl from './helper';
 export class CategoryService {
   constructor(private _http: HttpClient) {}
   //load all the cateogries
-  public categories() {
-    return this._http.get(`${baseUrl}/category/`);
+  public categories(jwt_tkn) {
+    var reqHeader = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + jwt_tkn
+   });
+  return this._http.get(`${baseUrl}/category/`, { headers: reqHeader });
+
   }
 
   //add new category
@@ -17,3 +22,7 @@ export class CategoryService {
     return this._http.post(`${baseUrl}/add/category/`, category);
   }
 }
+
+
+
+    
