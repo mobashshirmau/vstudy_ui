@@ -1,4 +1,4 @@
-<!-- <mat-nav-list class="sidenav-list">
+<mat-nav-list class="sidenav-list" *ngIf="role==='user'">
   <a mat-list-item routerLink="/login" (click)="onToggleClose()">
     <mat-icon>input</mat-icon>
     <span>Login</span>
@@ -18,8 +18,8 @@
   >
     <mat-icon mat-list-icon>assignment</mat-icon> {{ c.cat_title }}
 </a>
-</mat-nav-list> -->
-<mat-nav-list class="sidenav-list">
+</mat-nav-list>
+<mat-nav-list class="sidenav-list" *ngIf="role==='admin'">
 <a routerLink="/admin" mat-list-item (click)="onToggleClose()">
       <mat-icon mat-list-icon>home</mat-icon> Home
 </a>

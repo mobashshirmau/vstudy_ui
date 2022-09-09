@@ -68,6 +68,7 @@ const routes: Routes = [
       {
         path: 'quizzes',
         component: ViewQuizzesComponent,
+        
       },
       {
         path: 'add-quiz',

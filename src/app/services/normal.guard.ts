@@ -1,32 +1,23 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-  Router,
-} from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginService } from './login.service';
+import { MasterService } from './master.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class NormalGuard implements CanActivate {
-  constructor(private login: LoginService, private router: Router) {}
+  constructor(private _masterService:MasterService,private _router:Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    if (this.login.isLoggedIn()) {
-      return true;
-    }
-
-    this.router.navigate(['login']);
-    return false;
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      if(this._masterService.isLoggedIn() && localStorage.getItem('role')=='user'){
+        return true;
+      }
+      else{
+        this,this._router.navigate(["login"]);
+        return false;
+      }
   }
+  
 }

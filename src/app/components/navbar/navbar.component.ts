@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { LoginService } from 'src/app/services/login.service';
+import { MasterService } from 'src/app/services/master.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,23 +17,22 @@ export class NavbarComponent implements OnInit {
   categories;
 
   @Output() closeSideNav = new EventEmitter();
+  role: string;
 
    onToggleClose() {
     this.closeSideNav.emit();
 }
-  constructor(public login: LoginService, private router: Router,private _cat: CategoryService, private _snack: MatSnackBar) {}
+  constructor(public login: LoginService, private router: Router,private _cat: CategoryService, private _snack: MatSnackBar,private _master:MasterService) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.login.isLoggedIn();
-    this.user = this.login.getUser();
-    this.login.loginStatusSubject.asObservable().subscribe((data) => {
-      this.isLoggedIn = this.login.isLoggedIn();
-      this.user = this.login.getUser();
-    });
+    
+    console.log(this._master.isLoggedIn());
+
     this._cat.categories().subscribe(
       (result: any) => {
         if(result.status=='success'){
           this.categories = result.data;
+          this.role = localStorage.getItem('role');
           
         }
         else{
@@ -50,6 +50,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  
   public logout() {
     this.login.logout();
     // window.location.reload();

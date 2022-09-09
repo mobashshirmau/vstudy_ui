@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { LoginService } from 'src/app/services/login.service';
+import { MasterService } from 'src/app/services/master.service';
 
 @Component({
   selector: 'app-login',
@@ -19,14 +20,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private snack: MatSnackBar,
     private login: LoginService,
-    private router: Router
+    private router: Router,
+    private _master:MasterService
   ) {}
 
   ngOnInit(): void {}
 
   formSubmit() {
-    console.log('login btn clicked');
-
+    
     if (
       this.loginData.regId.trim() == '' ||
       this.loginData.regId == null
@@ -50,23 +51,24 @@ export class LoginComponent implements OnInit {
     //request to server to generate token
     this.login.generateToken(this.loginData).subscribe(
       (result: any) => {
-        console.log(result)
-    if(result.status=='success'){
-      this.router.navigate(['user-dashboard/0']);
-    }
-    else{
-      alert(result.message)
-    }
-        
-      },
-      (error) => {
-        console.log('Error !');
-        console.log(error);
+      if(result.status=='success'){
+        const role = 'user';
+        localStorage.setItem('role',role);
+        localStorage.setItem('data',result);
+  
+      }
+      else{
         this.snack.open('Invalid Details !! Try again', '', {
           duration: 3000,
         });
       }
-    );
-  }
-
+      if(this._master.isLoggedIn && localStorage.getItem('role')=='admin'){
+        this.router.navigate(["admin"])
+      }
+      else if(this._master.isLoggedIn && localStorage.getItem('role')=='user'){
+        this.router.navigate(['user-dashboard/0']);
+      }
+  },
+);
+}
 }
