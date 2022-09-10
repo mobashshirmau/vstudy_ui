@@ -60,10 +60,10 @@ export class NavbarComponent implements OnInit {
     this.login.loginStatusSubject.next(false);
   }
   users(){
-    return localStorage.getItem('data')&& localStorage.getItem('role')=='user';
+    return localStorage.getItem('stu_id')&& localStorage.getItem('role')=='student';
   }
   admin(){
-    return localStorage.getItem('data')&& localStorage.getItem('role')=='admin';
+    return localStorage.getItem('stu_id')&& localStorage.getItem('role')=='admin';
   }
   
 }

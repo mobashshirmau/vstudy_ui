@@ -62,17 +62,9 @@ export class LoginComponent implements OnInit {
     this.login.generateToken(this.loginData).subscribe(
       (result: any) => {
       if(result.status=='success'){
-        this.router.routeReuseStrategy.shouldReuseRoute = function () {
-          return false;
-        };
-        this.someSubscription = this.router.events.subscribe((event) => {
-          if (event instanceof ToolbarComponent) {
-            // Here is the dashing line comes in the picture.
-            // You need to tell the router that, you didn't visit or load the page previously, so mark the navigated flag to false as below.
-            this.router.navigated = false;
-          }
-        });
-        const role = 'user';
+        
+        const role = result.data[0]['role'];
+        localStorage.setItem('auth-token',result.authentication_token);
         localStorage.setItem('role',role);
         localStorage.setItem('stu_id',result.data[0]['regId']);
   
@@ -84,8 +76,9 @@ export class LoginComponent implements OnInit {
       }
       if(this._master.isLoggedIn && localStorage.getItem('role')=='admin'){
         this.router.navigate(["admin"])
+        
       }
-      else if(this._master.isLoggedIn && localStorage.getItem('role')=='user'){
+      else if(this._master.isLoggedIn && localStorage.getItem('role')=='student'){
         this.router.navigate(['user-dashboard/0']);
       }
   },

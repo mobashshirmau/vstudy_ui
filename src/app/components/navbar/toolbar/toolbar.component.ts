@@ -29,6 +29,6 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(["login"])
   }
   loggedIn(){
-    return localStorage.getItem('data');
+    return localStorage.getItem('stu_id');
   }
 }

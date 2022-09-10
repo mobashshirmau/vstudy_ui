@@ -38,16 +38,18 @@ export class StartComponent implements OnInit {
     this.preventBackButton();
     this.qid = this._route.snapshot.params.qid;
     console.log(this.qid);
-    this.loadQuestions();
-    // var currentTime=Date.now();
-    this._quiz.getQuizStartTimeForAStudent({"qid" : this.qid,"stu_id": this.stu_id}).subscribe(
+    this._quiz.getQuizStartTimeForAStudent({"q_id" : this.qid,"stu_id": this.stu_id}).subscribe(
       (result:any) =>{
         if(result.status=='success'){
-        this.start_time = result.data[0]['start_time']
-        this.minute_per_question = result.data[0]['minute_per_question']
+        this.start_time = parseInt(result.data[0]['started_at'])
+        this.minute_per_question = parseInt(result.data[0]['time_per_qstn_ms'])
+        
         }
       }
     );
+    this.loadQuestions();
+    // var currentTime=Date.now();
+    
   }
   loadQuestions() {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
@@ -55,8 +57,10 @@ export class StartComponent implements OnInit {
         if(result.status=='success'){
           this.questions = result.data;
           // this.timer = this.questions.length * 1 * 60;
-          var sec_per_question = 1000 * this.minute_per_question
+          var sec_per_question =  (this.minute_per_question/1000)/60
+          console.log(sec_per_question)
           this.timer = this.questions.length * sec_per_question * 60 - ((Date.now()-this.start_time)/1000);
+          console.log(this.timer)
           const quesLength = this.questions.length;
           this.startTimer();
         }

@@ -23,8 +23,8 @@ export class UserService {
   public checkIfUserExist(data:any){
     return this.http.post(`${baseUrl}/user/is-exist`, data)
   }
-  public uploadUser(data:any){
-    return this.http.post(`${baseUrl}/user/upload`, data)
+  public uploadUser(file:any){
+    return this.http.post(`${baseUrl}/action/bulk/upload`, file)
   }
 
 }

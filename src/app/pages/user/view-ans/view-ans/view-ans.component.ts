@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class ViewAnsComponent implements OnInit {
 
   qid;
-  stu_id='5249962';
+  stu_id=localStorage.getItem('stu_id');
   show_answersheet={
     qid:'',
     stu_id:''
@@ -31,7 +31,7 @@ export class ViewAnsComponent implements OnInit {
     console.log(this.qid);
     console.log(this.stu_id);
     const get_answersheet= {}
-    get_answersheet['stu_id'] = '1213'
+    get_answersheet['stu_id'] = this.stu_id
     get_answersheet['q_id'] = this.qid;
     console.log(get_answersheet)
     this._user.getAnswersheet(get_answersheet).subscribe(

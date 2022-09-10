@@ -30,7 +30,8 @@ console.log(this.file);
   uploadFile(){
     let formData = new FormData()
     console.log(formData);
-    formData.append('file',this.file)
+    formData.append('file', this.file)
+    console.log(formData)
     this._user.uploadUser(formData).subscribe(
       (data)=>{
         alert("Data Inserted To DataBase");
