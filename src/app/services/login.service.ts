@@ -25,9 +25,9 @@ export class LoginService {
   //login user: set token in localStorage
   public loginUser(token) {
     localStorage.setItem('token', token);
-
     return true;
   }
+
 
   //isLogin: user is logged in or not
   public isLoggedIn() {

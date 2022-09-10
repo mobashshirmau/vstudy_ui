@@ -9,3 +9,7 @@
   background-image: url("/assets/exam1.png");
   background-size: cover;
 }
+
+b{
+  float: right;
+}

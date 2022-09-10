@@ -1,10 +1,18 @@
 <mat-toolbar color="primary">
-    <div>
-      <button mat-icon-button (click)="openSidenav()">
+    
+    <div *ngIf="loggedIn()">
+      <button mat-icon-button (click)="openSidenav()" >
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-  
+    <div *ngIf="status===false">
+      
+    </div>
     
     <div class="logo" style="margin-left: 10px;"><img src="assets/logo1.png" width="100px"height="50px"></div>
+
+    <button *ngIf="loggedIn()" mat-icon-button class="example-icon favorite-icon"  id="logout"  (click)="logout()" >
+      <mat-icon>input</mat-icon>
+    </button>
+
   </mat-toolbar>

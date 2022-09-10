@@ -1,12 +1,6 @@
-<mat-nav-list class="sidenav-list" *ngIf="role==='user'">
-  <a mat-list-item routerLink="/login" (click)="onToggleClose()">
-    <mat-icon>input</mat-icon>
-    <span>Login</span>
-  </a>
-  <a mat-list-item routerLink="/signup" (click)="onToggleClose()">
-    <mat-icon>account_circle</mat-icon>
-    <span>Signup</span>
-  </a>
+
+<mat-nav-list class="sidenav-list" *ngIf="users()">
+  
   <a mat-list-item routerLink="/user-dashboard/0" (click)="onToggleClose()">
     <mat-icon mat-list-icon>category</mat-icon> All Quizzes
   </a>
@@ -19,29 +13,33 @@
     <mat-icon mat-list-icon>assignment</mat-icon> {{ c.cat_title }}
 </a>
 </mat-nav-list>
-<mat-nav-list class="sidenav-list" *ngIf="role==='admin'">
-<a routerLink="/admin" mat-list-item (click)="onToggleClose()">
-      <mat-icon mat-list-icon>home</mat-icon> Home
-</a>
-    <a mat-list-item routerLink="/admin/profile" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>account_circle</mat-icon> Profile
-    </a>
-    <a mat-list-item routerLink="/admin/categories" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>list</mat-icon> Categories
-    </a>
-    <a mat-list-item routerLink="/admin/level" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>waves</mat-icon> Level
-    </a>
-    <a mat-list-item routerLink="/admin/subject" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>library_books</mat-icon> Subject
-    </a>
-    <a mat-list-item routerLink="/admin/quizzes" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>quiz</mat-icon> Quizzes
-    </a>
-    <a mat-list-item routerLink="/admin/upload-user" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>add</mat-icon> Upload User
-    </a>
-    <a mat-list-item routerLink="/admin/profile" (click)="onToggleClose()">
-      <mat-icon mat-list-icon>logout</mat-icon> Logout
-    </a>
-    </mat-nav-list>
+
+   <mat-nav-list class="sidenav-list" *ngIf="admin()">
+            <a routerLink="/admin" mat-list-item (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>home</mat-icon> Home
+            </a>
+                <a mat-list-item routerLink="/admin/profile" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>account_circle</mat-icon> Profile
+                </a>
+                <a mat-list-item routerLink="/admin/categories" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>list</mat-icon> Categories
+                </a>
+                <a mat-list-item routerLink="/admin/level" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>waves</mat-icon> Level
+                </a>
+                <a mat-list-item routerLink="/admin/subject" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>library_books</mat-icon> Subject
+                </a>
+                <a mat-list-item routerLink="/admin/quizzes" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>quiz</mat-icon> Quizzes
+                </a>
+                <a mat-list-item routerLink="/admin/upload-user" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>add</mat-icon> Upload User
+                </a>
+                <a mat-list-item routerLink="/admin/profile" (click)="onToggleClose()">
+                  <mat-icon mat-list-icon>logout</mat-icon> Logout
+                </a>
+  </mat-nav-list>
+  
+
+                

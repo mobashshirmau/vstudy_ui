@@ -55,6 +55,7 @@ import { ToolbarComponent } from './components/navbar/toolbar/toolbar.component'
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,7 @@ import { UploadUserComponent } from './pages/admin/upload-user/upload-user/uploa
       showForeground: true,
     }),
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

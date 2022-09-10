@@ -12,12 +12,11 @@ import { MasterService } from 'src/app/services/master.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn = false;
   user = null;
   categories;
 
+
   @Output() closeSideNav = new EventEmitter();
-  role: string;
 
    onToggleClose() {
     this.closeSideNav.emit();
@@ -25,28 +24,30 @@ export class NavbarComponent implements OnInit {
   constructor(public login: LoginService, private router: Router,private _cat: CategoryService, private _snack: MatSnackBar,private _master:MasterService) {}
 
   ngOnInit(): void {
-    
-    console.log(this._master.isLoggedIn());
-
-    this._cat.categories().subscribe(
-      (result: any) => {
-        if(result.status=='success'){
-          this.categories = result.data;
-          this.role = localStorage.getItem('role');
+   
+  
+     if(this._master.isLoggedIn()==true){
+      this._cat.categories(localStorage.getItem('auth-token')).subscribe(
+        (result: any) => {
+          if(result.status=='success'){
+            this.categories = result.data;
+            
+            
+          }
+          else{
+            this._snack.open(result.message);
           
+          }
+         
+        },
+        (error) => {
+          this._snack.open('Error in loading categories from server', '', {
+            duration: 3000,
+          });
         }
-        else{
-          this._snack.open(result.message);
-        
-        }
-       
-      },
-      (error) => {
-        this._snack.open('Error in loading categories from server', '', {
-          duration: 3000,
-        });
-      }
-    );
+      );
+     }
+   
 
   }
 
@@ -58,4 +59,11 @@ export class NavbarComponent implements OnInit {
   
     this.login.loginStatusSubject.next(false);
   }
+  users(){
+    return localStorage.getItem('data')&& localStorage.getItem('role')=='user';
+  }
+  admin(){
+    return localStorage.getItem('data')&& localStorage.getItem('role')=='admin';
+  }
+  
 }
