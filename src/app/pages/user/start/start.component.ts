@@ -43,11 +43,8 @@ export class StartComponent implements OnInit {
       (result: any) => {
         if(result.status=='success'){
           this.questions = result.data;
-          
           this.timer = this.questions.length * 1 * 60;
           const quesLength = this.questions.length;
-          console.log(quesLength)
-          console.log(this.questions[0]['content']);
           this.startTimer();
         }
         else{
@@ -58,7 +55,6 @@ export class StartComponent implements OnInit {
       },
 
       (error) => {
-        console.log(error);
         Swal.fire('Error', 'Error in loading questions of quiz', 'error');
       }
     );
@@ -85,8 +81,8 @@ export class StartComponent implements OnInit {
   }
 
   startTimer() {
+   
     let t = window.setInterval(() => {
-      //code
       if (this.timer <= 0) {
         this.evalQuiz();
         clearInterval(t);
@@ -112,7 +108,11 @@ export class StartComponent implements OnInit {
     submit_payload['q_id'] = this.qid.toString()
     const temp_json = {}   
     this.questions.forEach(function (value) {
+      console.log(value)
+      if (value['givenAnswer'])
+      {
       temp_json[value['ques_id']] = value['givenAnswer'].toString()
+      }
       // answer_keys.push({ [value['ques_id']] :value['givenAnswer']})
     });
     submit_payload['data'] = temp_json
