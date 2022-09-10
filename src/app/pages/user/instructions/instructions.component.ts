@@ -47,6 +47,8 @@ export class InstructionsComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+        var currentTime=Date.now();
+        var newTime = 1662810721945;
         this._router.navigate(['/start/' + this.qid]);
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info');

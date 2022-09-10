@@ -8,6 +8,6 @@ export class MasterService {
   constructor() { }
 
   isLoggedIn(){
-    return localStorage.getItem('data')!=null
+    return localStorage.getItem('stu_id')!=null
   }
 }

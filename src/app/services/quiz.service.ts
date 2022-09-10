@@ -46,4 +46,7 @@ export class QuizService {
   public getActiveQuizzesOfCategory(cid) {
     return this._http.get(`${baseUrl}/quiz/category/active/${cid}`);
   }
+  public getQuizStartTimeForAStudent(data){
+    return this._http.post(`${baseUrl}/ans/get-quiz-start-time`,data);
+  }
 }

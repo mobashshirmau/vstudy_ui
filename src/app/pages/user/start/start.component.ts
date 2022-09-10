@@ -23,7 +23,9 @@ export class StartComponent implements OnInit {
   isSubmit = false;
 
   timer: any;
-  stu_id: '128388';
+  stu_id=localStorage.getItem('stu_id');
+  start_time:number;
+  minute_per_question : number;
 
   constructor(
     private locationSt: LocationStrategy,
@@ -37,13 +39,24 @@ export class StartComponent implements OnInit {
     this.qid = this._route.snapshot.params.qid;
     console.log(this.qid);
     this.loadQuestions();
+    // var currentTime=Date.now();
+    this._quiz.getQuizStartTimeForAStudent({"qid" : this.qid,"stu_id": this.stu_id}).subscribe(
+      (result:any) =>{
+        if(result.status=='success'){
+        this.start_time = result.data[0]['start_time']
+        this.minute_per_question = result.data[0]['minute_per_question']
+        }
+      }
+    );
   }
   loadQuestions() {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
       (result: any) => {
         if(result.status=='success'){
           this.questions = result.data;
-          this.timer = this.questions.length * 1 * 60;
+          // this.timer = this.questions.length * 1 * 60;
+          var sec_per_question = 1000 * this.minute_per_question
+          this.timer = this.questions.length * sec_per_question * 60 - ((Date.now()-this.start_time)/1000);
           const quesLength = this.questions.length;
           this.startTimer();
         }
@@ -104,7 +117,7 @@ export class StartComponent implements OnInit {
     // this.questions.push({'stu_id':'3221'})
     const answer_keys = []
     const submit_payload= {}
-    submit_payload['stu_id'] = '1213'
+    submit_payload['stu_id'] = this.stu_id;
     submit_payload['q_id'] = this.qid.toString()
     const temp_json = {}   
     this.questions.forEach(function (value) {

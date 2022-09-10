@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         });
         const role = 'user';
         localStorage.setItem('role',role);
-        localStorage.setItem('data',result);
+        localStorage.setItem('stu_id',result.data[0]['regId']);
   
       }
       else{
