@@ -59,7 +59,6 @@ export class StartComponent implements OnInit {
           this.questions = result.data;
           // this.timer = this.questions.length * 1 * 60;
           var sec_per_question =  (this.minute_per_question/1000)/60
-          console.log(sec_per_question)
           this.timer = this.questions.length * sec_per_question * 60 - ((Date.now()-this.start_time)/1000);
           // console.log("Before"+this.timer)
           this.timer = this.math.trunc(this.timer)
@@ -131,7 +130,7 @@ export class StartComponent implements OnInit {
       console.log(value)
       if (value['givenAnswer'])
       {
-      temp_json[value['ques_id']] = value['givenAnswer'].toString()
+      temp_json[value['ques_id']] = [value['givenAnswer']]
       }
       // answer_keys.push({ [value['ques_id']] :value['givenAnswer']})
     });
