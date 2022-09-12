@@ -10,6 +10,7 @@ import { QuizService } from 'src/app/services/quiz.service';
 export class LoadQuizComponent implements OnInit {
   catId;
   quizzes;
+  stu_id=localStorage.getItem('stu_id');
   constructor(private _route: ActivatedRoute, private _quiz: QuizService) {}
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class LoadQuizComponent implements OnInit {
       if (this.catId == 0) {
         console.log('Load all the quiz');
 
-        this._quiz.getActiveQuizzes().subscribe(
+        this._quiz.getActiveQuizzes(this.stu_id).subscribe(
           (result: any) => {
             if(result.status=='success'){
               this.quizzes = result.data;

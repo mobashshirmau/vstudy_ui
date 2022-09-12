@@ -38,8 +38,8 @@ export class QuizService {
     return this._http.get(`${baseUrl}/quiz/category/${cid}`);
   }
   //qet active quizzes
-  public getActiveQuizzes() {
-    return this._http.get(`${baseUrl}/quiz/active`);
+  public getActiveQuizzes(stu_id) {
+    return this._http.get(`${baseUrl}/quiz/active/${stu_id}`);
   }
 
   //get active quizzes of category
@@ -50,6 +50,6 @@ export class QuizService {
     return this._http.post(`${baseUrl}/ans/get-quiz-start-time`,data);
   }
   public getRanking(qid){
-    return this._http.get(`${baseUrl}/result/get-ranking`,qid);
+    return this._http.get(`${baseUrl}/result/get-ranking/${qid}`);
   }
 }
