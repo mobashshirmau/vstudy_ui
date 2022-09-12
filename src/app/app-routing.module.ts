@@ -22,6 +22,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { RankingComponent } from './pages/user/ranking/ranking/ranking.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.component';
@@ -58,6 +59,11 @@ const routes: Routes = [
         component: ProfileComponent,
       },
       {
+        path: 'welcome',
+        component: WelcomeComponent,
+      },
+      {
+
         path: 'categories',
         component: ViewCategoriesComponent,
       },
@@ -128,6 +134,10 @@ const routes: Routes = [
       {
         path: 'view-ans/:qid',
         component: ViewAnsComponent,
+      },
+      {
+        path: 'ranking/:qid',
+        component: RankingComponent,
       },
     ],
   },

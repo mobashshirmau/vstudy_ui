@@ -15,7 +15,7 @@
 </mat-nav-list>
 
    <mat-nav-list class="sidenav-list" *ngIf="admin()">
-            <a routerLink="/admin" mat-list-item (click)="onToggleClose()">
+            <a routerLink="/admin/welcome" mat-list-item (click)="onToggleClose()">
                   <mat-icon mat-list-icon>home</mat-icon> Home
             </a>
                 <a mat-list-item routerLink="/admin/profile" (click)="onToggleClose()">
@@ -36,9 +36,7 @@
                 <a mat-list-item routerLink="/admin/upload-user" (click)="onToggleClose()">
                   <mat-icon mat-list-icon>add</mat-icon> Upload User
                 </a>
-                <a mat-list-item routerLink="/admin/profile" (click)="onToggleClose()">
-                  <mat-icon mat-list-icon>logout</mat-icon> Logout
-                </a>
+
   </mat-nav-list>
   
 

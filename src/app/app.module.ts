@@ -35,6 +35,7 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {MatTableModule} from '@angular/material/table';
 
 import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
@@ -56,6 +57,7 @@ import { ToolbarComponent } from './components/navbar/toolbar/toolbar.component'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RankingComponent } from './pages/user/ranking/ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ViewSubjectComponent,
     ViewAnsComponent,
     ToolbarComponent,
-    UploadUserComponent
+    UploadUserComponent,
+    RankingComponent
   ],
   imports: [
     
@@ -105,6 +108,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
+    MatTableModule,
     MatIconModule,
     MatListModule,
     MatSlideToggleModule,

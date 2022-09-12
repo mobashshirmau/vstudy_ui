@@ -49,4 +49,7 @@ export class QuizService {
   public getQuizStartTimeForAStudent(data){
     return this._http.post(`${baseUrl}/ans/get-quiz-start-time`,data);
   }
+  public getRanking(qid){
+    return this._http.get(`${baseUrl}/result/get-ranking`,qid);
+  }
 }

@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this._master.isLoggedIn &&  localStorage.getItem('role')=='user'){
+    if(this._master.isLoggedIn &&  localStorage.getItem('role')=='student'){
         this.router.navigate(['user-dashboard/0'])
     }
     if(this._master.isLoggedIn &&  localStorage.getItem('role')=='admin'){
-      this.router.navigate(['admin'])
+      this.router.navigate(['admin/welcome'])
   }
   }
 
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
         });
       }
       if(this._master.isLoggedIn && localStorage.getItem('role')=='admin'){
-        this.router.navigate(["admin"])
+        this.router.navigate(['admin/welcome'])
         
       }
       else if(this._master.isLoggedIn && localStorage.getItem('role')=='student'){

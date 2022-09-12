@@ -51,14 +51,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  
-  public logout() {
-    this.login.logout();
-    // window.location.reload();
-    this.router.navigate(['login']);
-  
-    this.login.loginStatusSubject.next(false);
-  }
+
   users(){
     return localStorage.getItem('stu_id')&& localStorage.getItem('role')=='student';
   }

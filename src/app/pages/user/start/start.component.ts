@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./start.component.css'],
 })
 export class StartComponent implements OnInit {
+  math = Math;
   qid;
   questions;
   length;
@@ -60,7 +61,9 @@ export class StartComponent implements OnInit {
           var sec_per_question =  (this.minute_per_question/1000)/60
           console.log(sec_per_question)
           this.timer = this.questions.length * sec_per_question * 60 - ((Date.now()-this.start_time)/1000);
-          console.log(this.timer)
+          // console.log("Before"+this.timer)
+          this.timer = this.math.trunc(this.timer)
+          // console.log("After"+this.timer)
           const quesLength = this.questions.length;
           this.startTimer();
         }
