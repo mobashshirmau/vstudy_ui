@@ -1,7 +1,7 @@
 <div class="bootstrap-wrapper" style="margin-top: 30px;">
   <div class="container-fluid">
     <div class="row mt20" *ngIf="quizzes">
-      <div class="col-md-6" *ngFor="let q of quizzes">
+      <div class="col-md-4" *ngFor="let q of quizzes">
         <mat-card class="mb20" *ngIf="q.quiz_submitted_by_user===false">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
@@ -14,7 +14,7 @@
             </mat-card-subtitle>
             <mat-card-subtitle>
               <div style="margin-top: -15px;">
-              <p style="float: left; margin-right: 30px;">Max.Marks: {{q.max_marks}}</p><p style="float: right;">Questions:{{ q.no_of_ques }}</p>
+              <p style="float: left; margin-right: 25px;">Max.Marks: {{q.max_marks}}</p><p style="float: right;">Questions:{{ q.no_of_ques }}</p>
             </div>
             </mat-card-subtitle>
           </mat-card-header>
@@ -24,20 +24,22 @@
           </mat-card-content>
           <mat-card-action>
             <div style="margin-left:50px;">
+              
             <button
-              mat-button
-              class="btnColor"
+              
+            mat-raised-button
+              class="btnColor-gradient-blue"
               [routerLink]="'/user-dashboard/instructions/' + q.q_id"
             
-            >
+            ><mat-icon>play_arrow</mat-icon>
               Start
             </button>&nbsp;
             <!-- <button mat-button style="margin-right:10px;"class="btnColor "
             [routerLink]="'/user-dashboard/view-ans/' + q.q_id"
             >Result</button> -->
-            <button mat-button class="btnColor"
+            <button mat-raised-button class="btnColor-gradient-blue"
             [routerLink]="'/user-dashboard/ranking/' + q.q_id"
-            >Ranking</button>
+            ><mat-icon> bar_chart</mat-icon>Ranking</button>
           </div>
           </mat-card-action>
         </mat-card>

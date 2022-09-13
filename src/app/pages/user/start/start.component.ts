@@ -23,7 +23,7 @@ export class StartComponent implements OnInit {
 
   isSubmit = false;
 
-  timer: any;
+  timer: number;
   stu_id=localStorage.getItem('stu_id');
   start_time:number;
   minute_per_question : number;
@@ -127,7 +127,6 @@ export class StartComponent implements OnInit {
     submit_payload['q_id'] = this.qid.toString()
     const temp_json = {}   
     this.questions.forEach(function (value) {
-      console.log(value)
       if (value['givenAnswer'])
       {
       temp_json[value['ques_id']] = [value['givenAnswer']]
@@ -137,7 +136,6 @@ export class StartComponent implements OnInit {
     submit_payload['data'] = temp_json
     this._question.evalQuiz(submit_payload).subscribe(
       (data: any) => {
-        console.log(data);
         this.marksGot = data.marksGot;
         this.correctAnswers = data.correctAnswers;
         this.attempted = data.attempted;

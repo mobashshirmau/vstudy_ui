@@ -15,12 +15,12 @@
               mode="determinate"
               color="primary"
               style="margin: auto"
-              [value]="timer / (questions.length * 1 * 60) * 100"
+              [value]="timer / (questions.length * 1 * 60) * 10000"
             ></mat-spinner>
           </mat-card-content>
         </mat-card>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
         <!-- questions -->
         <ng-container *ngIf="questions">
           <h1 class="mt20">
@@ -28,51 +28,61 @@
           </h1>
         </ng-container>
 
-        <mat-card *ngFor="let q of questions; let i = index" class="mt10">
-          <mat-card-content>
-            <p>
-              <b>Q {{ i + 1 }})</b>
-              
-              <span class="ml10" [innerHTML]="q.content"></span>
-            </p>
+        <mat-card *ngFor="let q of questions; let i = index" class="mt10 question-mat-card">
+          <mat-card-content class="question-content">
+            <b>Question {{ i + 1 }}</b> <p [innerHTML]="q.content"></p> 
             <mat-divider> </mat-divider>
             <div class="row mt20">
               <div class="col-md-6">
-                <input
+                <label>
+                  <input
                   type="radio"
                   value="opt1"
                   [name]="i"
                   [(ngModel)]="q.givenAnswer"
-                />{{ q.opt1 }}
+                />
+                  <span>{{ q.opt1 }}</span>
+                </label>
+                
               </div>
               <div class="col-md-6">
-                <input
+                <label>
+                  <input
                   type="radio"
                   value="opt2"
                   [name]="i"
                   [(ngModel)]="q.givenAnswer"
-                />{{ q.opt2 }}
+                />
+                  <span>{{ q.opt2 }}</span>
+                </label>
               </div>
-            </div>
+            </div> 
 
-            <div class="row mt5">
+             <div class="row mt5">
               <div class="col-md-6">
-                <input
+                <label>
+                  <input
                   type="radio"
                   value="opt3"
                   [name]="i"
                   [(ngModel)]="q.givenAnswer"
-                />{{ q.opt3 }}
+                />
+                  <span>{{ q.opt3 }}</span>
+                </label>
               </div>
               <div class="col-md-6">
-                <input
+                <label>
+                  <input
                   type="radio"
                   value="opt4"
                   [name]="i"
                   [(ngModel)]="q.givenAnswer"
-                />{{ q.opt4 }}
+                />
+                  <span>{{ q.opt4 }}</span>
+                </label>
               </div>
             </div>
+           
           </mat-card-content>
         </mat-card>
 

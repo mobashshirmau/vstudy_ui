@@ -36,7 +36,7 @@ export class ViewAnsComponent implements OnInit {
     console.log(get_answersheet)
     this._user.getAnswersheet(get_answersheet).subscribe(
       (result: any) => {
-          this.quiz = result;
+          this.quiz = result.data;
           console.log(this.quiz)
           
         },

@@ -1,2 +1,2 @@
-let baseUrl = 'http://localhost:8000';
+let baseUrl = 'https://araaish.shop';
 export default baseUrl;
