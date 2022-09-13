@@ -14,12 +14,12 @@ export class RankingComponent implements OnInit {
 qid;
 dataSource;
 sno:number
-displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+displayedColumns: string[] = ['position', 'name', 'score'];
   constructor(private _route:ActivatedRoute,private _quiz:QuizService) { }
 
   ngOnInit(): void {
     this.qid = this._route.snapshot.params.qid;
-    console.log(this.qid);
+
 
     this._quiz.getRanking(this.qid).subscribe(
       (result: any) => {

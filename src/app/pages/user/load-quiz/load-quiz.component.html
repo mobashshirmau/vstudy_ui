@@ -2,15 +2,13 @@
   <div class="container-fluid">
     <div class="row mt20" *ngIf="quizzes">
       <div class="col-md-6" *ngFor="let q of quizzes">
-        <mat-card class="mb20">
+        <mat-card class="mb20" *ngIf="q.quiz_submitted_by_user===false">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>
               {{ q.title }} 
             </mat-card-title>
                          
-    
-
             <mat-card-subtitle>
               {{ q.cat_title }}
             </mat-card-subtitle>
@@ -34,6 +32,45 @@
             >
               Start
             </button>&nbsp;
+            <!-- <button mat-button style="margin-right:10px;"class="btnColor "
+            [routerLink]="'/user-dashboard/view-ans/' + q.q_id"
+            >Result</button> -->
+            <button mat-button class="btnColor"
+            [routerLink]="'/user-dashboard/ranking/' + q.q_id"
+            >Ranking</button>
+          </div>
+          </mat-card-action>
+        </mat-card>
+        <mat-card class="mb20" *ngIf="q.quiz_submitted_by_user===true" style="background-color:#f1f0fa;">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+              {{ q.title }} 
+            </mat-card-title>
+                         
+            <mat-card-subtitle>
+              {{ q.cat_title }}
+            </mat-card-subtitle>
+            <mat-card-subtitle>
+              <div style="margin-top: -15px;">
+              <p style="float: left; margin-right: 30px;">Max.Marks: {{q.max_marks}}</p><p style="float: right;">Questions:{{ q.no_of_ques }}</p>
+            </div>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p style="margin-left: 55px;">{{ q.description }}</p>
+            
+          </mat-card-content>
+          <mat-card-action>
+            <div style="margin-left:50px;">
+            <!-- <button
+              mat-button
+              class="btnColor"
+              [routerLink]="'/user-dashboard/instructions/' + q.q_id"
+            
+            >
+              Start
+            </button>&nbsp; -->
             <button mat-button style="margin-right:10px;"class="btnColor "
             [routerLink]="'/user-dashboard/view-ans/' + q.q_id"
             >Result</button>
