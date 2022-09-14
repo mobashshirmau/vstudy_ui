@@ -6,9 +6,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          
-  
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
           <mat-card  class="mt10">
             <mat-card-content>
                 <div class="row">
@@ -26,99 +25,206 @@
             </mat-card-content>
           </mat-card><br>
           <div *ngFor="let q of quiz.answer_data; let i = index">
-          <mat-card *ngIf="q.correct_option===q.selected_option" style="background-color: #b6f2ba;">
+          <mat-card *ngIf="q.correct_option==q.selected_option">
             
-                <mat-card-content>
-                    <p>
-                      <b>Q {{ i + 1 }})</b>
-                      
-                      <span class="ml10" [innerHTML]="q.content"></span>
-                    </p>
-                    <mat-divider> </mat-divider>
-                    <div class="row mt20">
-                      <div class="col-md-6" >
-                        {{q.opt1}}<mat-icon *ngIf="q.correct_option==='opt1'">done_all</mat-icon>
-                      </div>
-                      <div class="col-md-6">
-                        {{q.opt2}}<mat-icon  *ngIf="q.correct_option==='opt2'">done_all</mat-icon>
-                    </div>
-                    </div>
-        
-                    <div class="row mt5">
-                      <div class="col-md-6" >
-                       {{q.opt3}}<mat-icon  *ngIf="q.correct_option==='opt3'">done_all</mat-icon>
-                      </div>
-                      <div class="col-md-6" >
-                       {{q.opt4}}<mat-icon *ngIf="q.correct_option==='opt4'">done_all</mat-icon>
-                      </div>
-                    </div>
-                  </mat-card-content>
-       
-          </mat-card><br>
-          
-      <mat-card *ngIf="q.correct_option!=q.selected_answer" style="background-color: #f0d3d3;">
-            
-            <mat-card-content>
-                <p>
-                  <b>Q {{ i + 1 }})</b>
+            <mat-card-content class="question-content">
+              <i>Question {{ i + 1 }}</i> <p [innerHTML]="q.content"></p> 
+              <mat-divider> </mat-divider>
+              <div class="row mt20">
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    value="opt1"
+                    disabled
+                    [checked]="q.correct_option=='opt1'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt1 }}</span>
+                  </label>
                   
-                  <span class="ml10" [innerHTML]="q.content"></span>
-                </p>
-                <mat-divider> </mat-divider>
-                <div class="row mt20">
-                  <div class="col-md-6" >
-                    {{q.opt1}}<mat-icon *ngIf="q.correct_option==='opt1'">done_all</mat-icon>
-                  </div>
-                  <div class="col-md-6">
-                    {{q.opt2}}<mat-icon  *ngIf="q.correct_option==='opt2'">done_all</mat-icon>
                 </div>
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    [checked]="q.correct_option=='opt2'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt2 }}</span>
+                  </label>
                 </div>
-    
-                <div class="row mt5">
-                  <div class="col-md-6" >
-                   {{q.opt3}}<mat-icon  *ngIf="q.ancorrect_options==='opt3'">done_all</mat-icon>
-                  </div>
-                  <div class="col-md-6" >
-                   {{q.opt4}}<mat-icon *ngIf="q.correct_option==='opt4'">done_all</mat-icon>
-                  </div>
+              </div> 
+  
+               <div class="row mt5">
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    [checked]="q.correct_option=='opt3'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt3 }}</span>
+                  </label>
                 </div>
-                <mat-divider> </mat-divider>
-                <p *ngIf="q.selected_answer==='opt1'"><b>You Selected: </b> {{q.opt1}}</p>
-                <p *ngIf="q.selected_answer==='opt2'"><b>You Selected: </b> {{q.opt2}}</p>
-                <p *ngIf="q.selected_answer==='opt3'"><b>You Selected: </b> {{q.opt3}}</p>
-                <p *ngIf="q.selected_answer==='opt4'"><b>You Selected: </b> {{q.opt4}}</p>
-              </mat-card-content>
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    [checked]="q.correct_option=='opt4'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt4 }}</span>
+                  </label>
+                </div>
+              </div>
+             
+            </mat-card-content>
+       
+          </mat-card>
+          <mat-card *ngIf="q.correct_option!=q.selected_option">
+            
+            <mat-card-content class="question-content">
+              <i>Question {{ i + 1 }}</i> <p [innerHTML]="q.content"></p> 
+              <mat-divider> </mat-divider>
+              <div class="row mt20">
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    value="opt1"
+                    [checked]="q.correct_option=='opt1'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt1 }}</span>
+                  </label>
+                  
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    [checked]="q.correct_option=='opt2'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt2 }}</span>
+                  </label>
+                </div>
+              </div> 
+  
+               <div class="row mt5">
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    [checked]="q.correct_option=='opt3'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt3 }}</span>
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    <input
+                    type="radio"
+                    disabled
+                    [checked]="q.correct_option=='opt4'"
+                    [name]="i"
+                    [value]="q.givenAnswer"
+                  />
+                    <span>{{ q.opt4 }}</span>
+                  </label>
+                </div>
+              </div>
+              <mat-divider> </mat-divider>
+              <br>
+              <p *ngIf="q.selected_option=='opt1'"><b>You Selected: </b> {{q.opt1}}</p>
+              <p *ngIf="q.selected_option=='opt2'"><b>You Selected: </b>{{q.opt2}}</p>
+              <p *ngIf="q.selected_option=='opt3'"><b>You Selected: </b>{{q.opt3}}</p>
+              <p *ngIf="q.selected_option=='opt4'"><b>You Selected: </b>{{q.opt4}}</p>
+             
+            </mat-card-content>
    
       </mat-card>
-      <mat-card *ngIf="q.selected_answer==='' || q.selected_answer===null" style="background-color: #f4f4f4;">
+      <mat-card *ngIf="q.selected_option==''||q.selected_option=='null'" style="background-color: #f7eeef;">
             
-        <mat-card-content>
-            <p>
-              <b>Q {{ i + 1 }})</b>
+        <mat-card-content class="question-content">
+          <i>Question {{ i + 1 }}</i> <p [innerHTML]="q.content"></p> 
+          <mat-divider> </mat-divider>
+          <div class="row mt20">
+            <div class="col-md-6">
+              <label>
+                <input
+                type="radio"
+                value="opt1"
+                disabled
+                [checked]="q.correct_option=='opt1'"
+                [name]="i"
+                [value]="q.givenAnswer"
+              />
+                <span>{{ q.opt1 }}</span>
+              </label>
               
-              <span class="ml10" [innerHTML]="q.content"></span>
-            </p>
-            <mat-divider> </mat-divider>
-            <div class="row mt20">
-              <div class="col-md-6" >
-                {{q.opt1}}<mat-icon *ngIf="q.correct_option==='opt1'">done_all</mat-icon>
-              </div>
-              <div class="col-md-6">
-                {{q.opt2}}<mat-icon  *ngIf="q.correct_option==='opt2'">done_all</mat-icon>
             </div>
+            <div class="col-md-6">
+              <label>
+                <input
+                type="radio"
+                disabled
+                [checked]="q.correct_option=='opt2'"
+                [name]="i"
+                [value]="q.givenAnswer"
+              />
+                <span>{{ q.opt2 }}</span>
+              </label>
             </div>
+          </div> 
 
-            <div class="row mt5">
-              <div class="col-md-6" >
-               {{q.opt3}}<mat-icon  *ngIf="q.ancorrect_options==='opt3'">done_all</mat-icon>
-              </div>
-              <div class="col-md-6" >
-               {{q.opt4}}<mat-icon *ngIf="q.correct_option==='opt4'">done_all</mat-icon>
-              </div>
+           <div class="row mt5">
+            <div class="col-md-6">
+              <label>
+                <input
+                type="radio"
+                disabled
+                [checked]="q.correct_option=='opt3'"
+                [name]="i"
+                [value]="q.givenAnswer"
+              />
+                <span>{{ q.opt3 }}</span>
+              </label>
             </div>
-          </mat-card-content>
+            <div class="col-md-6">
+              <label>
+                <input
+                type="radio"
+                disabled
+                [checked]="q.correct_option=='opt4'"
+                [name]="i"
+                [value]="q.givenAnswer"
+              />
+                <span>{{ q.opt4 }}</span>
+              </label>
+            </div>
+          </div>
+         
+        </mat-card-content>
 
-  </mat-card>
+  </mat-card><br>
+          
+
       
           </div>
   

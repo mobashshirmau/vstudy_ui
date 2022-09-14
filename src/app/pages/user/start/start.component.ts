@@ -44,12 +44,12 @@ export class StartComponent implements OnInit {
         if(result.status=='success'){
         this.start_time = parseInt(result.data[0]['started_at'])
         this.minute_per_question = parseInt(result.data[0]['time_per_qstn_ms'])
-        
+        this.loadQuestions();
         }
       }
     );
-    this.loadQuestions();
-    // var currentTime=Date.now();
+    
+
     
   }
   loadQuestions() {
@@ -60,9 +60,10 @@ export class StartComponent implements OnInit {
           // this.timer = this.questions.length * 1 * 60;
           var sec_per_question =  (this.minute_per_question/1000)/60
           this.timer = this.questions.length * sec_per_question * 60 - ((Date.now()-this.start_time)/1000);
-          // console.log("Before"+this.timer)
+          console.log("Before"+this.timer)
           this.timer = this.math.trunc(this.timer)
-          // console.log("After"+this.timer)
+
+          console.log("After"+this.timer)
           const quesLength = this.questions.length;
           this.startTimer();
         }

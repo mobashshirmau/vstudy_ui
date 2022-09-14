@@ -28,15 +28,15 @@ export class ViewAnsComponent implements OnInit {
 
   ngOnInit(): void {
     this.qid = this._route.snapshot.params.qid;
-    console.log(this.qid);
-    console.log(this.stu_id);
     const get_answersheet= {}
     get_answersheet['stu_id'] = this.stu_id
     get_answersheet['q_id'] = this.qid;
-    console.log(get_answersheet)
     this._user.getAnswersheet(get_answersheet).subscribe(
       (result: any) => {
           this.quiz = result.data;
+          console.log(this.quiz.answer_data[1]['correct_option'])
+          console.log(this.quiz.answer_data[1]['correct_option'])
+  
           console.log(this.quiz)
           
         },
