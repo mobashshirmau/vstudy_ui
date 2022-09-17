@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
   formSubmit() {
     this.login.checkIfSecureLoginEnabled().subscribe(
       (result: any) => { 
-       if(result){
+       if(result==true){
         this.password=Md5.hashStr(this.loginData.password)
         console.log("passwoed  enc"+this.loginData.password)
        }
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
     }
 
     //request to server to generate token
-    this.login.generateToken(this.loginDataBackend).subscribe(
+    this.login.generateToken(this.loginData).subscribe(
       (result: any) => {
       if(result.status=='success'){
         const role = result.data[0]['role'];

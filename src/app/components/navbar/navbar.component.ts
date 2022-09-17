@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
    
   
      if(this._master.isLoggedIn()==true){
-      this._cat.categories(localStorage.getItem('auth-token')).subscribe(
+      this._cat.categories().subscribe(
         (result: any) => {
           if(result.status=='success'){
             this.categories = result.data;
