@@ -5,6 +5,7 @@ import { ToolbarComponent } from 'src/app/components/navbar/toolbar/toolbar.comp
 
 import { LoginService } from 'src/app/services/login.service';
 import { MasterService } from 'src/app/services/master.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,12 @@ export class LoginComponent implements OnInit {
     regId: '',
     password: '',
   };
-  someSubscription: any;
+  loginDataBackend={
+    regId:'',
+    password:'',
+  }
+  someSubscription: any; 
+  password: string;
 
   constructor(
     private snack: MatSnackBar,
@@ -37,7 +43,16 @@ export class LoginComponent implements OnInit {
   }
 
   formSubmit() {
-    
+    this.login.checkIfSecureLoginEnabled().subscribe(
+      (result: any) => { 
+       if(result){
+        this.password=Md5.hashStr(this.loginData.password)
+        console.log("passwoed  enc"+this.loginData.password)
+       }
+       this.loginDataBackend['regId'] = this.loginData.regId
+       this.loginDataBackend['password'] = this.password
+       console.log(this.loginData);
+     
     if (
       this.loginData.regId.trim() == '' ||
       this.loginData.regId == null
@@ -59,10 +74,9 @@ export class LoginComponent implements OnInit {
     }
 
     //request to server to generate token
-    this.login.generateToken(this.loginData).subscribe(
+    this.login.generateToken(this.loginDataBackend).subscribe(
       (result: any) => {
       if(result.status=='success'){
-        
         const role = result.data[0]['role'];
         localStorage.setItem('auth-token',result.authentication_token);
         localStorage.setItem('role',role);
@@ -82,6 +96,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['user-dashboard/0']);
       }
   },
-);
-}
+); });
+} 
 }

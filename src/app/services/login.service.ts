@@ -16,10 +16,18 @@ export class LoginService {
     return this.http.get(`${baseUrl}/current-user`);
   }
 
-  //generate token
+  public checkIfSecureLoginEnabled(){ 
+    return this.http.get(`${baseUrl}/settings/checkIfSecureLoginEnabled/abc`);
+  }
+
+  //generate token 
 
   public generateToken(loginData: any) {
-    return this.http.post(`${baseUrl}/generate-token`, loginData);
+    // isSecuredLogin = this.http.post(`${baseUrl}/generate-token`, loginData);
+    const isSecuredLogin=false
+
+    var res = this.http.post(`${baseUrl}/generate-token`, loginData);
+    return res
   }
 
   //login user: set token in localStorage

@@ -38,6 +38,7 @@ export class ViewAnsComponent implements OnInit {
           console.log(this.quiz.answer_data[1]['correct_option'])
   
           console.log(this.quiz)
+          console.log(Math.ceil(Math.random()*1000));
           
         },
       (error) => {

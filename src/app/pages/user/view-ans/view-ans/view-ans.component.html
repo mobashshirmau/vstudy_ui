@@ -99,10 +99,11 @@
                   <label>
                     <input
                     type="radio"
-                    disabled
+                    [ngStyle]="{'background-color': (q.selected_option=='opt1') ? 'red' : '#ffffff'}"
+
                     value="opt1"
-                    [checked]="q.correct_option=='opt1'"
-                    [name]="i"
+                    [checked]="q.correct_option=='opt1'||q.selected_option=='opt1'"
+                    [name]="i+2*1+q.content" 
                     [value]="q.givenAnswer"
                   />
                     <span>{{ q.opt1 }}</span>
@@ -113,9 +114,10 @@
                   <label>
                     <input
                     type="radio"
-                    disabled
-                    [checked]="q.correct_option=='opt2'"
-                    [name]="i"
+                    [ngStyle]="{'background-color': (q.selected_option=='opt2') ? 'red' : '#ffffff'}"
+
+                    [checked]="q.correct_option=='opt2'||q.selected_option=='opt2'"
+                    [name]="i+2*2+q.content"
                     [value]="q.givenAnswer"
                   />
                     <span>{{ q.opt2 }}</span>
@@ -128,9 +130,10 @@
                   <label>
                     <input
                     type="radio"
-                    disabled
-                    [checked]="q.correct_option=='opt3'"
-                    [name]="i"
+                    [ngStyle]="{'background-color': (q.selected_option=='opt3') ? 'red' : '#ffffff'}"
+
+                    [checked]="q.correct_option=='opt3'||q.selected_option=='opt3'"
+                    [name]="i+2*3+q.content"
                     [value]="q.givenAnswer"
                   />
                     <span>{{ q.opt3 }}</span>
@@ -139,10 +142,10 @@
                 <div class="col-md-6">
                   <label>
                     <input
-                    type="radio"
-                    disabled
-                    [checked]="q.correct_option=='opt4'"
-                    [name]="i"
+                    type="radio" 
+                    [ngStyle]="{'font-size': (q.selected_option=='opt4') ? '100px !important' : '100px'}"
+                    [checked]="q.correct_option=='opt4'||q.selected_option=='opt4'"
+                    [name]="i+2*4+q.content"
                     [value]="q.givenAnswer"
                   />
                     <span>{{ q.opt4 }}</span>
