@@ -15,7 +15,7 @@
                     <h3><b>Total Questions: </b> {{quiz.total_question}}</h3>
                 </div>
                 <div class="col-md-6">
-                    <h3><b>Marks Obtained</b> {{quiz.marks_obtained}} </h3>
+                    <h3><b>Marks Obtained: </b> {{quiz.marks_obtained}} </h3>
                 </div>
                 </div>
               
@@ -96,13 +96,12 @@
               <mat-divider> </mat-divider>
               <div class="row mt20">
                 <div class="col-md-6">
-                  <label>
+                  <label [ngClass]="{'wrong':q.selected_option=='opt1' }"
+                  >
                     <input
                     type="radio"
-                    [ngStyle]="{'background-color': (q.selected_option=='opt1') ? 'red' : '#ffffff'}"
-
-                    value="opt1"
                     [checked]="q.correct_option=='opt1'||q.selected_option=='opt1'"
+                    [ngStyle]="{'background-color':q.selected_option=='opt1' ? 'red' : '' }"
                     [name]="i+2*1+q.content" 
                     [value]="q.givenAnswer"
                   />
@@ -111,12 +110,12 @@
                   
                 </div>
                 <div class="col-md-6">
-                  <label>
+                  <label  [ngClass]="{'wrong':q.selected_option=='opt2' }"                  
+                  >
                     <input
                     type="radio"
-                    [ngStyle]="{'background-color': (q.selected_option=='opt2') ? 'red' : '#ffffff'}"
-
                     [checked]="q.correct_option=='opt2'||q.selected_option=='opt2'"
+                    [ngStyle]="{'background-color':q.selected_option=='opt2' ? 'red' : '' }"
                     [name]="i+2*2+q.content"
                     [value]="q.givenAnswer"
                   />
@@ -127,11 +126,11 @@
   
                <div class="row mt5">
                 <div class="col-md-6">
-                  <label>
+                  <label [ngClass]="{'wrong':q.selected_option=='opt3' }"
+                  >
                     <input
                     type="radio"
-                    [ngStyle]="{'background-color': (q.selected_option=='opt3') ? 'red' : '#ffffff'}"
-
+                    [ngStyle]="{'color':q.selected_option=='opt3' ? 'red' : '' }"
                     [checked]="q.correct_option=='opt3'||q.selected_option=='opt3'"
                     [name]="i+2*3+q.content"
                     [value]="q.givenAnswer"
@@ -140,10 +139,11 @@
                   </label>
                 </div>
                 <div class="col-md-6">
-                  <label>
+                  <label   [ngClass]="{'wrong':q.selected_option=='opt4' }"          
+                  >
                     <input
                     type="radio" 
-                    [ngStyle]="{'font-size': (q.selected_option=='opt4') ? '100px !important' : '100px'}"
+                    
                     [checked]="q.correct_option=='opt4'||q.selected_option=='opt4'"
                     [name]="i+2*4+q.content"
                     [value]="q.givenAnswer"

@@ -58,6 +58,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RankingComponent } from './pages/user/ranking/ranking/ranking.component';
+import { UploadContentComponent } from './pages/admin/upload-content/upload-content/upload-content.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { RankingComponent } from './pages/user/ranking/ranking/ranking.component
     ViewAnsComponent,
     ToolbarComponent,
     UploadUserComponent,
-    RankingComponent
+    RankingComponent,
+    UploadContentComponent
   ],
   imports: [
     

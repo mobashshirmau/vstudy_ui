@@ -26,5 +26,8 @@ export class UserService {
   public uploadUser(file:any){
     return this.http.post(`${baseUrl}/action/bulk/upload`, file)
   }
+  public uploadContent(data:any){
+    return this.http.post(`${baseUrl}/action/upload/content`, data)
+  }
 
 }
