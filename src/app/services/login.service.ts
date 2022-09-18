@@ -17,7 +17,7 @@ export class LoginService {
   }
 
   public checkIfSecureLoginEnabled(){ 
-    return this.http.get(`${baseUrl}/settings/checkIfSecureLoginEnabled/abc`);
+    return this.http.get(`${baseUrl}/settings/checkIfSecureLoginEnabled`);
   }
 
   //generate token 

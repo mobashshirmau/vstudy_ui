@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HeaderAuthenticatorService } from './header-authenticator.service';
 import baseUrl from './helper';
 
 @Injectable({
@@ -7,14 +8,14 @@ import baseUrl from './helper';
 })
 export class SubjectService {
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _headerAuth:HeaderAuthenticatorService) {}
   //load all the cateogries
   public subjects() {
-    return this._http.get(`${baseUrl}/subject/`);
+    return this._http.get(`${baseUrl}/subject/`,{headers: this._headerAuth.createAuthorizationHeader()});
   }
 
   //add new category
   public addSubject(subject) {
-    return this._http.post(`${baseUrl}/add/subject/`, subject);
+    return this._http.post(`${baseUrl}/add/subject/`, subject,{headers: this._headerAuth.createAuthorizationHeader()});
   }
 }
