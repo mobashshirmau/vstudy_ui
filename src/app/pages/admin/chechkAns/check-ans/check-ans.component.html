@@ -1,9 +1,8 @@
 <mat-card>
     <h1>Check Answer</h1>
-  
     <mat-card-content>
       <div class="bootstrap-wrapper">
-        <form (ngSubmit)="formSubmit()">
+        
         <div class="row">
           <div class="col-md-3">
             
@@ -13,9 +12,10 @@
                 <input
                   required
                   autofocus
+                  
                   type="text"
                   name="registrationId"
-                  [(ngModel)]="checkAns.registrationId"
+                 
                   (blur)="sendit($event.target.value)"
                   matInput
                   placeholder="Enter here"
@@ -23,15 +23,17 @@
               </mat-form-field>
             </div>
           <div class="col-md-3">
+            
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Full Name</mat-label>
   
                 <input
                   required
-                  
+                  disabled
+                  value="{{stu_name}}"
                   type="text"
                   name="name"
-                  [(ngModel)]="checkAns.name"
+                  
                   matInput
                   placeholder="Enter here"
                 />
@@ -43,10 +45,11 @@
   
                 <input
                   required
-                  
+                  disabled
+                  value="{{stu_class}}"               
                   type="text"
                   name="class"
-                  [(ngModel)]="checkAns.class"
+                  
                   matInput
                   placeholder="Enter here"
                 />
@@ -54,24 +57,87 @@
           </div>
           <div class="col-md-3">
               <mat-form-field class="w100" appearance="outline">
-                <mat-label>Group</mat-label>
+                <mat-label>School</mat-label>
   
                 <input
                   required
-                  
+                  value="{{stu_school}}"    
+                  disabled              
                   type="text"
                   name="group"
-                  [(ngModel)]="checkAns.group"
                   matInput
                   placeholder="Enter here"
                 />
               </mat-form-field>
           </div>
-          <div class="container text-center mt15">
-            <button mat-raised-button color="primary">Add</button>
-          </div>
+          
         </div>
-        </form>
+        
       </div>
     </mat-card-content>
   </mat-card>
+
+  
+  <mat-card *ngFor="let q of ques_data; let i = index" class="mt10 question-mat-card">
+    <mat-card-content class="question-content">
+      <i>Question {{ i + 1 }}</i> <p [innerHTML]="q.content"></p> 
+      <mat-divider> </mat-divider>
+      <div class="row mt20">
+        <div class="col-md-6">
+          <label>
+            <input
+            type="radio"
+            value="opt1"
+            [name]="i"
+            [(ngModel)]="q.givenAnswer"
+          />
+            <span>{{ q.opt1 }}</span>
+          </label>
+          
+        </div>
+        <div class="col-md-6">
+          <label>
+            <input
+            type="radio"
+            value="opt2"
+            [name]="i"
+            [(ngModel)]="q.givenAnswer"
+          />
+            <span>{{ q.opt2 }}</span>
+          </label>
+        </div>
+      </div> 
+
+       <div class="row mt5">
+        <div class="col-md-6">
+          <label>
+            <input
+            type="radio"
+            value="opt3"
+            [name]="i"
+            [(ngModel)]="q.givenAnswer"
+          />
+            <span>{{ q.opt3 }}</span>
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label>
+            <input
+            type="radio"
+            value="opt4"
+            [name]="i"
+            [(ngModel)]="q.givenAnswer"
+          />
+            <span>{{ q.opt4 }}</span>
+          </label>
+        </div>
+      </div>
+     
+    </mat-card-content>
+  </mat-card>
+
+  <div class="container text-center mt20 mb20">
+    <button (click)="submitQuiz()" mat-raised-button color="primary">
+      Submit Quiz
+    </button>
+  </div>

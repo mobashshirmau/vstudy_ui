@@ -94,7 +94,7 @@ const routes: Routes = [
         component: AddQuestionComponent,
       },
       {
-        path: 'checkAns',
+        path: 'checkAns/:qid',
         component: CheckAnsComponent,
       },
       {
