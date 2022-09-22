@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { StudyMaterialService } from 'src/app/services/study-material.service';
 import { SubjectService } from 'src/app/services/subject.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -14,26 +14,25 @@ import Swal from 'sweetalert2';
 export class UploadContentComponent implements OnInit {
 
 
-  uploadContent = {
-    sub_id:'',
-    class:'',
-    chapterName:'',
-    uploadFile:'',
-  };
-  selectedFile:''
-
-
+   // form group
+   form: FormGroup;
   subject: any;
-  resData: any;
-  
+  fileName:''
 
-  constructor(
-    private _subject: SubjectService,
-    private _user: UserService,
-    private _route: ActivatedRoute,
-    private http: HttpClient
-  ) {}
+   constructor(private http: HttpClient, 
+               private fb: FormBuilder,
+               private _subject:SubjectService,
+               private _stuMat:StudyMaterialService) {
+ 
+     this.form = this.fb.group({
+       class: [''],
+       subject_id: [''],
+       chapterName:[''],
+       file: [''],
+       fileSource: [null],
+     });
 
+   }
   ngOnInit(): void {
     this._subject.subjects().subscribe(
       (result: any) => {
@@ -54,24 +53,35 @@ export class UploadContentComponent implements OnInit {
       }
     );
   }
-
-  selectFile(event: any){
-    this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
-  }
-    
  
-   
-  formSubmit() {
-    this.uploadContent['uploadFile']=this.selectedFile;
-    console.log(this.uploadContent)
-    this._user.uploadContent(this.uploadContent).subscribe(
-      (data: any) => {
-        Swal.fire('Success ', 'Question Added. Add Another one', 'success');
-      },
-      (error) => {
-        Swal.fire('Error', 'Error in adding question', 'error');
-      }
-    );
-  }
+   get f() {
+     return this.form.controls;
+   }
+ 
+   // on file select event
+   onFileChange(event) {
+     if (event.target.files.length > 0) {
+       const file = event.target.files[0];
+       this.fileName = file.name
+       this.form.patchValue({
+         fileSource: file
+       });
+     }
+   }
+ 
+   // on form submit function
+   onSubmit() {
+     const formData = new FormData();
+     formData.append('file', this.form.get('fileSource').value);
+     formData.append('class', this.form.get('class').value);
+     formData.append('subject_id', this.form.get('subject_id').value);
+     formData.append('chapterName', this.form.get('chapterName').value);
+ 
+     this._stuMat.addContent(formData)
+       .subscribe(res => {
+ 
+         alert('Uploaded Successfully.');
+       })
+   }
+ 
 }

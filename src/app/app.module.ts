@@ -53,7 +53,7 @@ import { ViewSubjectComponent } from './pages/admin/view-subject/view-subject/vi
 import {MatRadioModule} from '@angular/material/radio';
 import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.component';
 import { ToolbarComponent } from './components/navbar/toolbar/toolbar.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -98,6 +98,8 @@ import { UploadContentComponent } from './pages/admin/upload-content/upload-cont
   imports: [
     
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDatepickerModule,
     MatSidenavModule,
     AppRoutingModule,
@@ -106,6 +108,7 @@ import { UploadContentComponent } from './pages/admin/upload-content/upload-cont
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    
     HttpClientModule,
     MatSnackBarModule,
     MatCardModule,
