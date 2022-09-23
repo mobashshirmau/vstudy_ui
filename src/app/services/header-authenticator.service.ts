@@ -13,7 +13,7 @@ export class HeaderAuthenticatorService {
   createAuthorizationHeader() {
      const jwt_tkn = localStorage.getItem('auth-token')
        const headers = new HttpHeaders({ 
-      'Content-Type': 'application/json',
+      
       'Authorization': 'Bearer ' + jwt_tkn
    });
     return headers

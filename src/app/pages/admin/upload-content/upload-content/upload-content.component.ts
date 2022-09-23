@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import baseUrl from 'src/app/services/helper';
 import { StudyMaterialService } from 'src/app/services/study-material.service';
 import { SubjectService } from 'src/app/services/subject.service';
 import { UserService } from 'src/app/services/user.service';
@@ -26,7 +27,7 @@ export class UploadContentComponent implements OnInit {
  
      this.form = this.fb.group({
        class: [''],
-       subject_id: [''],
+       subject: [''],
        chapterName:[''],
        file: [''],
        fileSource: [null],
@@ -73,11 +74,14 @@ export class UploadContentComponent implements OnInit {
    onSubmit() {
      const formData = new FormData();
      formData.append('file', this.form.get('fileSource').value);
-     formData.append('class', this.form.get('class').value);
-     formData.append('subject_id', this.form.get('subject_id').value);
+     formData.append('class_st', this.form.get('class').value);
+     formData.append('subject', this.form.get('subject').value);
      formData.append('chapterName', this.form.get('chapterName').value);
+    //  this.http.post(`${baseUrl}/add/study-material`, formData).subscribe(res => {
  
-     this._stuMat.addContent(formData)
+    //   alert('Uploaded Successfully.');
+    // })
+     this._stuMat.addStudyMaterial(formData)
        .subscribe(res => {
  
          alert('Uploaded Successfully.');

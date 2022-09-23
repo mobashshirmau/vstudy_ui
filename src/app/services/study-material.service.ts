@@ -11,7 +11,8 @@ export class StudyMaterialService {
   constructor(private _http: HttpClient, private _headerAuth: HeaderAuthenticatorService) { }
 
   //add question
-  public addContent(data) {
-    return this._http.post(`${baseUrl}/add/content/`, data,{headers: this._headerAuth.createAuthorizationHeader()});
+  public addStudyMaterial(data) {
+    console.log(data)
+    return this._http.post(`${baseUrl}/add/study-material`, data,{headers: this._headerAuth.createAuthorizationHeader()});
   }
 }

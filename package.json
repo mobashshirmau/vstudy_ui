@@ -1,6 +1,6 @@
 {
-  "name": "examfront",
-  "version": "0.0.0",
+  "name": "vStudy Student Portal",
+  "version": "1.0.1",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -23,6 +23,8 @@
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "@capacitor/cli": "^4.3.0",
+    "@capacitor/core": "^4.3.0",
     "@ckeditor/ckeditor5-angular": "^2.0.1",
     "@ckeditor/ckeditor5-build-classic": "^28.0.0",
     "bootstrap-grid-only-css": "^4.1.3",
