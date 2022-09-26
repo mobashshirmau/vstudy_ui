@@ -26,6 +26,10 @@ export class UploadUserComponent implements OnInit {
     this.file = event.target.files[0];
 console.log(this.file);
   }
+  selectQuestFile(event: any){
+    this.file = event.target.files[0];
+console.log(this.file);
+  }
     
   uploadFile(){
     let formData = new FormData()
@@ -36,6 +40,20 @@ console.log(this.file);
       (data)=>{
         alert("Data Inserted To DataBase");
         this.router.navigate(['/ecommerce']);
+      },
+      (error)=>{
+        alert("Something Went Wrong");
+      
+      })
+  }
+  uploadQuestFile(){
+    let formData = new FormData()
+    console.log(formData);
+    formData.append('file', this.file)
+    console.log(formData)
+    this._user.uploadUser(formData).subscribe(
+      (data)=>{
+        alert("Data Inserted To DataBase");
       },
       (error)=>{
         alert("Something Went Wrong");

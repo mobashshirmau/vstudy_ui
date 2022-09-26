@@ -26,7 +26,10 @@ export class UserService {
     return this.http.post(`${baseUrl}/user/is-exist`, data)
   }
   public uploadUser(file:any){
-    return this.http.post(`${baseUrl}/action/bulk/upload`, file,{headers: this._headerAuth.createAuthorizationHeader()})
+    return this.http.post(`${baseUrl}/upload`, file,{headers: this._headerAuth.createAuthorizationHeader()})
+  }
+  public uploadQuest(file:any){
+    return this.http.post(`${baseUrl}/add/excel-questions`, file,{headers: this._headerAuth.createAuthorizationHeader()})
   }
   public uploadContent(data:any){
     return this.http.post(`${baseUrl}/action/upload/content`, data)

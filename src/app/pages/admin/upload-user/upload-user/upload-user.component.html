@@ -14,3 +14,18 @@
     </mat-card-content>
   </mat-card>
   
+<!-- Upload Question -->
+<mat-card>
+  <h1>Add Question In Bulk</h1>
+
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <input  (change)="selectQuestFile($event)" class="form-control form-control-lg" id="formQuestFileLg" type="file">
+        <button mat-raised-button color="primary" (click)="uploadQuestFile()">Upload</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
