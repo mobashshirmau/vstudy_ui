@@ -1,0 +1,91 @@
+<form  [formGroup]="gaugeTitleForm" (ngSubmit)="onSubmit()">
+        <div class="bootstrap-wrapper">
+      <div class="row mt20">
+        <div class="col-md-8 offset-md-2">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-subtitle>
+                Add Question Set
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- Class -->
+  
+                  <!-- <mat-form-field class="w100">
+                    <mat-label>Subjects</mat-label>
+                    <mat-select name="level" formControlName="subject">
+                      <mat-option *ngFor="let s of subject" [value]="s.sub_title">
+                        {{ s.sub_title }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field> -->
+                  <mat-form-field class="w100">
+                    <mat-label>Name</mat-label>
+                    <input required formControlName="name" name="name" type="text" matInput />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+  
+                    <mat-form-field class="w100">
+                        <mat-label>Decription</mat-label>
+                        <input required formControlName="description" name="description" type="text" matInput />
+                      </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4 " id="addButton">
+                    <button type="button" mat-raised-button color="primary"mat-button class="float-end" (click)="addItem()">
+                        <mat-icon>add_circle</mat-icon>
+                        Add
+                    </button>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-md-12">
+
+                    <div *ngFor="let item of getControls(); let i = index;" formArrayName="subjectWeightage" >
+                        <div class="row mt-2" [formGroupName]="i" >
+                         
+                
+                          <div class="col-md-5">
+                            <mat-form-field class="w100">
+                                <mat-label>Subjects</mat-label>
+                                <mat-select name="level" formControlName="subject">
+                                  <mat-option *ngFor="let s of sub" [value]="s.sub_title">
+                                    {{ s.sub_title }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                          <div class="col-md-5">
+                            <mat-form-field class="w100">
+                                <mat-label>Percentage</mat-label>
+                                <input required formControlName="percentage" (blur)="sendit($event.target.value)" (focus)="checkDataPresent($event.target.value)" max="107"   name="percentage"  type="number" matInput />
+                              </mat-form-field>
+                        </div>
+                          <div class="col-md-2">
+                              <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" >
+                                  <mat-icon  (click)="removeRow(i)">delete</mat-icon>
+                                </button>
+                          </div>
+                          
+                      </div> 
+                         </div>
+                </div>
+              </div>
+  
+  
+  
+              <div class="container text-center">
+                <button mat-raised-button color="primary" [disabled]="remainingPercentage<0">Add</button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </form>

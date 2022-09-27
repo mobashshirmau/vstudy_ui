@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { AddLevelComponent } from './pages/admin/add-level/add-level/add-level.component';
+import { AddQuestSetComponent } from './pages/admin/add-quest-set/add-quest-set.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { AddSubjectComponent } from './pages/admin/add-subject/add-subject/add-subject.component';
 import { CheckAnsComponent } from './pages/admin/chechkAns/check-ans/check-ans.component';
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { QuestSetComponent } from './pages/admin/quest-set/quest-set.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { UploadContentComponent } from './pages/admin/upload-content/upload-content/upload-content.component';
 import { UploadUserComponent } from './pages/admin/upload-user/upload-user/upload-user.component';
@@ -104,6 +106,14 @@ const routes: Routes = [
       {
         path: 'add-level',
         component: AddLevelComponent,
+      },
+      {
+        path:'quest-set',
+        component:QuestSetComponent
+      },
+      {
+        path:'add-quest-set',
+        component:AddQuestSetComponent
       },
       {
         path: 'subject',

@@ -53,4 +53,8 @@ export class QuizService {
   public getRanking(qid){
     return this._http.get(`${baseUrl}/result/get-ranking/${qid}`,{headers: this._headerAuth.createAuthorizationHeader()});
   }
+  public addQuestionSetProfile(data){
+    return this._http.post(`${baseUrl}/question/set-profile/`,data,{headers: this._headerAuth.createAuthorizationHeader()});
+  }
+
 }

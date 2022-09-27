@@ -59,6 +59,8 @@ import { UploadUserComponent } from './pages/admin/upload-user/upload-user/uploa
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RankingComponent } from './pages/user/ranking/ranking/ranking.component';
 import { UploadContentComponent } from './pages/admin/upload-content/upload-content/upload-content.component';
+import { QuestSetComponent } from './pages/admin/quest-set/quest-set.component';
+import { AddQuestSetComponent } from './pages/admin/add-quest-set/add-quest-set.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { UploadContentComponent } from './pages/admin/upload-content/upload-cont
     ToolbarComponent,
     UploadUserComponent,
     RankingComponent,
-    UploadContentComponent
+    UploadContentComponent,
+    QuestSetComponent,
+    AddQuestSetComponent
   ],
   imports: [
     
