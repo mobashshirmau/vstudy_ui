@@ -61,6 +61,7 @@ import { RankingComponent } from './pages/user/ranking/ranking/ranking.component
 import { UploadContentComponent } from './pages/admin/upload-content/upload-content/upload-content.component';
 import { QuestSetComponent } from './pages/admin/quest-set/quest-set.component';
 import { AddQuestSetComponent } from './pages/admin/add-quest-set/add-quest-set.component';
+import { ReadingRoomComponent } from './pages/user/reading-room/reading-room.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { AddQuestSetComponent } from './pages/admin/add-quest-set/add-quest-set.
     RankingComponent,
     UploadContentComponent,
     QuestSetComponent,
-    AddQuestSetComponent
+    AddQuestSetComponent,
+    ReadingRoomComponent
   ],
   imports: [
     

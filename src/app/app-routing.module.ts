@@ -26,6 +26,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { RankingComponent } from './pages/user/ranking/ranking/ranking.component';
+import { ReadingRoomComponent } from './pages/user/reading-room/reading-room.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { ViewAnsComponent } from './pages/user/view-ans/view-ans/view-ans.component';
@@ -154,12 +155,17 @@ const routes: Routes = [
         path: 'ranking/:qid',
         component: RankingComponent,
       },
+      
     ],
   },
   {
     path: 'start/:qid',
     component: StartComponent,
     canActivate: [NormalGuard],
+  },
+  {
+    path: 'reading-room',
+    component: ReadingRoomComponent,
   },
 ];
 

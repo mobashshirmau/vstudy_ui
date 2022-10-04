@@ -24,31 +24,7 @@ export class NavbarComponent implements OnInit {
   constructor(public login: LoginService, private router: Router,private _cat: CategoryService, private _snack: MatSnackBar,private _master:MasterService) {}
 
   ngOnInit(): void {
-   
-  
-     if(this._master.isLoggedIn()==true){
-      this._cat.categories().subscribe(
-        (result: any) => {
-          if(result.status=='success'){
-            this.categories = result.data;
-            
-            
-          }
-          else{
-            this._snack.open(result.message);
-          
-          }
-         
-        },
-        (error) => {
-          this._snack.open('Error in loading categories from server', '', {
-            duration: 3000,
-          });
-        }
-      );
-     }
-   
-
+      
   }
 
 

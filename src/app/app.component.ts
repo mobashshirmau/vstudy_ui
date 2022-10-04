@@ -13,30 +13,5 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private _http: HttpClient, private _headerAuth: HeaderAuthenticatorService, private router: Router, private snack: MatSnackBar,
-
-    ){}
- checkIfUserSessionIsValid(){
-  this._http.get(`${baseUrl}/session/if-valid`,{headers: this._headerAuth.createAuthorizationHeader()}).subscribe(
-    (result: any) => {
-    return  
-    },
-    (error: any) => {
-      
-      if (error.status==403){
-        localStorage.clear()
-        this.snack.open('Session expired', '', {
-          duration: 3000,
-        });
-        this.router.navigate(['login']);
-        
-
-      }
-    }
-  )
- }
- ngOnInit(): void {
-  this.checkIfUserSessionIsValid()
-}
- 
+          
 }
