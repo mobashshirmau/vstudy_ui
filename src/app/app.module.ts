@@ -62,7 +62,9 @@ import { UploadContentComponent } from './pages/admin/upload-content/upload-cont
 import { QuestSetComponent } from './pages/admin/quest-set/quest-set.component';
 import { AddQuestSetComponent } from './pages/admin/add-quest-set/add-quest-set.component';
 import { ReadingRoomComponent } from './pages/user/reading-room/reading-room.component';
-
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { ELibraryComponent } from './pages/user/e-library/e-library.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,10 +101,11 @@ import { ReadingRoomComponent } from './pages/user/reading-room/reading-room.com
     UploadContentComponent,
     QuestSetComponent,
     AddQuestSetComponent,
-    ReadingRoomComponent
+    ReadingRoomComponent,
+    ELibraryComponent
   ],
   imports: [
-    
+    NgxDocViewerModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -114,7 +117,7 @@ import { ReadingRoomComponent } from './pages/user/reading-room/reading-room.com
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    
+    MatProgressBarModule,
     HttpClientModule,
     MatSnackBarModule,
     MatCardModule,

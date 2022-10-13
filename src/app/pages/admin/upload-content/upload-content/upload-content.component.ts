@@ -81,6 +81,12 @@ export class UploadContentComponent implements OnInit {
  
     //   alert('Uploaded Successfully.');
     // })
+    fetch('assets/uploaded-data/study-material/3/Hindi/Chapter3/BRAIN BRAWL SYLLABUS.pdf')
+  .then(response => response.text())
+  .then(data => {
+  	// Do something with your data
+  	console.log(data);
+  });
      this._stuMat.addStudyMaterial(formData)
        .subscribe(res => {
  

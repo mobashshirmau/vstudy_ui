@@ -12,7 +12,14 @@ export class StudyMaterialService {
 
   //add question
   public addStudyMaterial(data) {
-    console.log(data)
     return this._http.post(`${baseUrl}/add/study-material`, data,{headers: this._headerAuth.createAuthorizationHeader()});
+  }
+
+  public getAllSubject(data) {
+    return this._http.get(`${baseUrl}/study-material/get-subject-list/${data}`,{headers: this._headerAuth.createAuthorizationHeader()});
+  }
+
+  public getAllChapter(cls,subj) {
+    return this._http.get(`${baseUrl}/study-material/get-chapter-list/${cls}/${subj}`,{headers: this._headerAuth.createAuthorizationHeader()});
   }
 }

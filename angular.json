@@ -32,7 +32,7 @@
               "./node_modules/bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css"
              
             ],
-            "scripts": []
+            "scripts": ["node_modules/mammoth/mammoth.browser.min.js"]
           },
           "configurations": {
             "production": {

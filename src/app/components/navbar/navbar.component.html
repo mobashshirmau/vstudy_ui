@@ -4,7 +4,17 @@
   <a mat-list-item routerLink="/user-dashboard/0" (click)="onToggleClose()">
     <mat-icon mat-list-icon>assignment</mat-icon> All Quizzes
   </a>
+  <a mat-list-item routerLink="/eLibrary" (click)="onToggleClose()">
+    <mat-icon mat-list-icon>library_books</mat-icon> E-Library
+  </a>
 </mat-nav-list>
+<!-- <mat-nav-list class="sidenav-list" *ngIf="elibrary()">
+  <div *ngFor="let c of allChapter">
+  <a mat-list-item [routerLink]="'/reading-room/'+sub+'/'+c" (click)="onToggleClose()">
+    <mat-icon mat-list-icon>assignment</mat-icon> {{c}}
+  </a>
+</div>
+</mat-nav-list> -->
 
    <mat-nav-list class="sidenav-list" *ngIf="admin()">
             <a routerLink="/admin/welcome" mat-list-item (click)="onToggleClose()">

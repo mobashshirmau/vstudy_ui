@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('auth-token',result.authentication_token);
         localStorage.setItem('role',role);
         localStorage.setItem('stu_id',result.data[0]['regId']);
+        localStorage.setItem('class',result.data[0]['class']);
   
       }
       else{

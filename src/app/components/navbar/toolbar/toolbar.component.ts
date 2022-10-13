@@ -27,6 +27,8 @@ export class ToolbarComponent implements OnInit {
     localStorage.removeItem('stu_id');
     localStorage.removeItem('role');
     localStorage.removeItem('auth-token');
+    localStorage.removeItem('class');
+    localStorage.removeItem('subject');
     this.router.navigate(["login"])
   }
   loggedIn(){

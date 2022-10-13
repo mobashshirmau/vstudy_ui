@@ -23,6 +23,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ELibraryComponent } from './pages/user/e-library/e-library.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { RankingComponent } from './pages/user/ranking/ranking/ranking.component';
@@ -164,8 +165,16 @@ const routes: Routes = [
     canActivate: [NormalGuard],
   },
   {
-    path: 'reading-room',
+    path: 'reading-room/:s',
     component: ReadingRoomComponent,
+  },
+  {
+    path: 'reading-room/:s/:c',
+    component: ReadingRoomComponent,
+  },
+  {
+    path: 'eLibrary',
+    component: ELibraryComponent,
   },
 ];
 
